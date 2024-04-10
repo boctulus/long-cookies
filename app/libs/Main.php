@@ -14,20 +14,30 @@ class Main
     }
 
     function init(){
-        // Verificar si la URL no contiene "logout" y no tiene la variable "token"
-        if (strpos($_SERVER['REQUEST_URI'], 'logout') === false && empty($_GET['token'])) {
-            // Obtener el token y agregarlo a la URL
-            $token = $this->token();
-            
-            if ($token) {
-                $url = add_query_arg('token', $token, $_SERVER['REQUEST_URI']);
-                wp_redirect($url); // Redireccionar a la URL con el token agregado
+        // Verificar si la URL no contiene "logout" y no tiene la variable "stoken"
+        if (strpos($_SERVER['REQUEST_URI'], 'logout') === false && empty($_GET['stoken'])) {
+            // Obtener el stoken y agregarlo a la URL
+            $stoken = $this->stoken();
+
+            if ($stoken) {
+                $url = add_query_arg('stoken', $stoken, $_SERVER['REQUEST_URI']);
+                wp_redirect($url); // Redireccionar a la URL con el stoken agregado
                 exit;
             }
         }
+
+        // Verificar si el usuario está deslogueado
+        $uid = get_current_user_id();
+
+        if ($uid == 0 && isset($_GET['stoken'])) 
+        {
+            $uid = $this->decode($_GET['stoken']);
+    
+            dd($uid, 'UID RECUPERADO DEL TOKEN');
+        }
     }
 
-    function token(){
+    function stoken(){
         $uid = get_current_user_id(); 
     
         if ($uid == 0) {

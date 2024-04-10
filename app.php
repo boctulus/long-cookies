@@ -23,10 +23,10 @@ $cfg = require __DIR__ . '/config/config.php';
 
 
 
-if (defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY){
-	error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
-}
+// if (defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY){
+// 	error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+// }
 
-ini_set('display_errors', 0);
+// ini_set('display_errors', 0);
 
 

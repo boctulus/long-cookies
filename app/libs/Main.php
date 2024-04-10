@@ -2,8 +2,10 @@
 
 namespace boctulus\SW\libs;
 
+use boctulus\SW\core\libs\Users;
+
 /*
-    @author  Pablo Bozzolo boctulus@gmail.com
+    @author Pablo Bozzolo < boctulus@gmail.com >
 */
 
 class Main
@@ -13,7 +15,8 @@ class Main
         add_action('init', [$this, 'init']);
     }
 
-    function init(){
+    function init()
+    {        
         // Verificar si la URL no contiene "logout" y no tiene la variable "stoken"
         if (strpos($_SERVER['REQUEST_URI'], 'logout') === false && empty($_GET['stoken'])) {
             // Obtener el stoken y agregarlo a la URL
@@ -31,9 +34,9 @@ class Main
 
         if ($uid == 0 && isset($_GET['stoken'])) 
         {
-            $uid = $this->decode($_GET['stoken']);
-    
-            dd($uid, 'UID RECUPERADO DEL TOKEN');
+            $uname = $this->decode($_GET['stoken']);
+
+            Users::loginNoPassword($uname);
         }
     }
 
@@ -43,16 +46,18 @@ class Main
         if ($uid == 0) {
             return; 
         }
+
+        $uname = Users::getUsernameByID($uid);
     
-        return ($this->encode($uid));
+        return ($this->encode($uname));
     }
 
-    function encode($uid){
-        return base64_encode(1000 + $uid);
+    function encode(string $uname){
+        return base64_encode('pbz' . $uname);
     }
     
-    function decode($uid){
-        return base64_decode($uid) - 1000;
+    function decode(string $uname){
+        return substr(base64_decode($uname), 3);
     }
     
 

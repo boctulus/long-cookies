@@ -12,15 +12,9 @@ error_reporting(E_ALL);
 
 require_once __DIR__   . '/app/core/helpers/debug.php';
 require_once __DIR__   . '/app/core/helpers/autoloader.php';
+require_once __DIR__   . '/app/core/helpers/config.php';
 
 require_once __DIR__   . '/config/constants.php';
-
-/*
-    CFG
-*/
-
-$cfg = require __DIR__ . '/config/config.php';
-
 
 
 // if (defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY){

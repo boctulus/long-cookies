@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\SW\libs\Main;
+use boctulus\LongCookies\libs\Main;
 
 
 new Main();

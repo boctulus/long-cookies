@@ -3,7 +3,7 @@
 
 return [
     
-    'namespace'         => "boctulus\SW", 
+    'namespace'         => "boctulus\LongCookies", 
     'use_composer'      => false, // 
 
     'front_controller' => false,

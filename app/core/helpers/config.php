@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\SW\core\libs\Files;
+use boctulus\LongCookies\core\libs\Files;
 
 /*
     Si es parametrizado, devuelve el contenido del archivo

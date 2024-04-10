@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\SW\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
 /*
     @author Pablo Bozzolo < boctulus@gmail.com >

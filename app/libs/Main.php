@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\SW\libs;
+namespace boctulus\LongCookies\libs;
 
-use boctulus\SW\core\libs\Users;
+use boctulus\LongCookies\core\libs\Users;
 
 /*
     @author Pablo Bozzolo < boctulus@gmail.com >

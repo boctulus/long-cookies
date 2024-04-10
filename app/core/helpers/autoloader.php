@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\SW\core\libs\Autoloader;
+use boctulus\LongCookies\core\libs\Autoloader;
 
 require_once __DIR__ . '/../libs/Autoloader.php';
 

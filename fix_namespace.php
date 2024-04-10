@@ -29,11 +29,11 @@ error_reporting(E_ALL);
 	Repara namespaces --sin dependencias--
 */
 
-$search  = 'simplerest\\';
-$replace = 'boctulus\\SW\\';
+$search  = 'boctulus\\SW\\';
+$replace = 'boctulus\\LongCookies\\';
 
 
-searchAndReplaceInFiles(APP_PATH, '*.php', $search, $replace);
+searchAndReplaceInFiles(ROOT_PATH, '*.php', $search, $replace);
 
 
 function recursiveGlob($pattern, $flags = 0) {

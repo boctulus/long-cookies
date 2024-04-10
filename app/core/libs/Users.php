@@ -33,7 +33,12 @@ class Users
 
 
     // login por username sin password
-    static function loginNoPassword(string $username, $redirect = true){
+    static function loginNoPassword(string $username, $redirect = true)
+    {
+        if (empty($username)){
+            return;
+        }
+
         $user = get_user_by('login', $username );
         
         // Redirect URL //
@@ -44,7 +49,7 @@ class Users
             wp_set_auth_cookie  ( $user->ID );
         
             if ($redirect){
-                $redirect_to = (is_string($redirect) ? $redirect : user_admin_url());
+                $redirect_to = (is_string($redirect) ? $redirect : $_SERVER['REQUEST_URI']);
                 wp_safe_redirect( $redirect_to );
                 exit();
             }

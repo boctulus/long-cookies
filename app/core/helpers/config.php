@@ -9,22 +9,21 @@ use boctulus\LongCookies\core\libs\Files;
 
     config('discounts.php')
 */
-function config($file = null){
-    $path = CONFIG_PATH;
 
-    if ($file != null){
-        Files::existsOrFail($path . $file);
+if (function_exists('config')){
+    function config($file = null){
+        $path = __DIR__ . '/../../../config/';
 
-        return include $path . $file;
+        if ($file != null){
+            return include $path . $file;
+        }
+
+        $cfg = include $path . 'config.php';
+
+        if (file_exists($path . 'databases.php')){    
+            $db  = include $path . 'databases.php';
+        }
+
+        return array_merge($cfg, $db);
     }
-
-    $cfg = include $path . 'config.php';
-    $db  = include $path . 'databases.php';
-
-    return array_merge($cfg, $db);
-}
-
-function get_cfg($file) {
-    Files::existsOrFail(CONFIG_PATH . $file);
-    return include CONFIG_PATH . $file;
 }

@@ -16,7 +16,15 @@ class Main
     }
 
     function init()
-    {        
+    {       
+        /*
+            Falta agregar soporte a .env y hacer que
+
+            'logout_slug' => env('LOGOUT_SLUG')
+
+            ya que es /ec en produccion        
+        */
+        
         // Verificar si la URL no contiene "logout" y no tiene la variable "stoken"
         if (strpos($_SERVER['REQUEST_URI'], 'logout') === false && empty($_GET['stoken'])) {
             // Obtener el stoken y agregarlo a la URL

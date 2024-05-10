@@ -10,9 +10,24 @@ use boctulus\LongCookies\core\libs\Users;
 
 class Main
 { 
-    function __construct(){
+    function __construct()
+    {
         
+        /*
+            Cambiar tiempo de expiracion de cookie de inicio de session
+        */
+
+        add_filter ('auth_cookie_expiration', [$this, 'wp_login_session']); 
         add_action('init', [$this, 'init']);
+    }
+
+    function wp_login_session( $expire )
+    {
+        if (isset($_GET['no_exp']) && $_GET['long_exp'] == 1){
+            $expire = 3600 * 24 * 365;
+        }
+        
+        return $expire;
     }
 
     function init()

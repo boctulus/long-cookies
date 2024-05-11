@@ -9,31 +9,21 @@ if (php_sapi_name() != "cli"){
 	return; 
 }
 
-// require_once __DIR__ . '/app.php';
-
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', realpath(__DIR__ . '/../../..') . DIRECTORY_SEPARATOR);
-
-	require_once ABSPATH . '/wp-config.php';
-	require_once ABSPATH .'/wp-load.php';
-}
-
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 /////////////////////////////////////////////////////////////////////////////////
 
 /*
 	Repara namespaces --sin dependencias--
+
+	return [
+        'namespace' => "boctulus\TutorImpExp"  <-------- deberia poder cambiar esto tambien !!
+	]
 */
 
 $search  = 'boctulus\\SW\\';
 $replace = 'boctulus\\LongCookies\\';
 
 
-searchAndReplaceInFiles(ROOT_PATH, '*.php', $search, $replace);
+searchAndReplaceInFiles(__DIR__, '*.php', $search, $replace);
 
 
 function recursiveGlob($pattern, $flags = 0) {
@@ -43,6 +33,11 @@ function recursiveGlob($pattern, $flags = 0) {
 	}
 
 	foreach ($files as $ix => $f){
+		if (realpath($f) == __FILE__){
+			unset($files[$ix]);
+			continue;
+		}
+
 		$files[$ix] = preg_replace('#/+#','/',$f);
 	}	
 
@@ -51,6 +46,7 @@ function recursiveGlob($pattern, $flags = 0) {
 
 function searchAndReplaceInFiles($directory, $filePattern, $searchString, $replaceString) {
 	$files = recursiveGlob("$directory/$filePattern", GLOB_BRACE);
+	$files[] = __DIR__ . '/com';
 
 	foreach ($files as $file) {
 		if (is_file($file)) {

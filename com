@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use boctulus\SW\core\FrontController;
+use boctulus\LongCookies\core\FrontController;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

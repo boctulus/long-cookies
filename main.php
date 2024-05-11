@@ -22,22 +22,6 @@ if ((php_sapi_name() === 'cli') || (isset($_GET['show_errors']) && $_GET['show_e
 }
 
 
-// Cambiar tiempo de expiracion de cookie de inicio de session
-
-add_filter ( 'auth_cookie_expiration', 'wp_login_session' );
-
-function wp_login_session( $expire )
-{
-    $expire = 3600 * 24 * 365;
-    
-    if (defined('AUTH_COOKIE_EXPIRATION')){
-        $expire = AUTH_COOKIE_EXPIRATION;
-    } 
-    
-    return $expire;
-}
-
-
 // require_once __DIR__ . '/menu.php';
 
 new Main();

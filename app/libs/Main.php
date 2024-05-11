@@ -3,6 +3,7 @@
 namespace boctulus\LongCookies\libs;
 
 use boctulus\LongCookies\core\libs\Users;
+use boctulus\LongCookies\core\libs\Config;
 
 /*
     @author Pablo Bozzolo < boctulus@gmail.com >
@@ -23,25 +24,19 @@ class Main
 
     function wp_login_session( $expire )
     {
-        if (isset($_GET['no_exp']) && $_GET['long_exp'] == 1){
-            $expire = 3600 * 24 * 365;
-        }
+        $expire = 3600 * 24 * 365;
+    
+        if (defined('AUTH_COOKIE_EXPIRATION')){
+            $expire = AUTH_COOKIE_EXPIRATION;
+        } 
         
         return $expire;
     }
 
     function init()
-    {       
-        /*
-            Falta agregar soporte a .env y hacer que
-
-            'logout_slug' => env('LOGOUT_SLUG')
-
-            ya que es /ec en produccion        
-        */
-        
+    {   
         // Verificar si la URL no contiene "logout" y no tiene la variable "stoken"
-        if (strpos($_SERVER['REQUEST_URI'], 'logout') === false && empty($_GET['stoken'])) {
+        if (strpos($_SERVER['REQUEST_URI'], Config::get('logout_slug')) === false && empty($_GET['stoken'])) {
             // Obtener el stoken y agregarlo a la URL
             $stoken = $this->stoken();
 

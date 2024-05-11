@@ -7,7 +7,6 @@ return [
         // __DIR__ . '/../boot'
 
         __DIR__ . '/../app/core/helpers/system.php',
-        __DIR__ . '/../app/core/helpers/env.php',
         __DIR__ . '/../app/core/helpers/credits.php',
         __DIR__ . '/../app/core/scripts/admin.php',
     ],

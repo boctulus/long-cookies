@@ -1,8 +1,10 @@
 <?php
 
+use boctulus\LongCookies\core\libs\Env;
+
 
 return [
-    'is_enabled' => env('ENABLED', true),
+    'is_enabled' => Env::get('ENABLED', true),
 
     /*
         [1:22 pm, 11/04/2024] ALVARO zelaya: 
@@ -11,7 +13,7 @@ return [
         https://kaviapp.com/ec
     */
     
-    'logout_slug'  => '/ec',  
+    'logout_slug'  => Env::get('LOGOUT_SLUG'),  
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -31,7 +33,7 @@ return [
     // No editar desde aqui
     //
 
-    'app_name'          => env('APP_NAME'),
+    'app_name'          => Env::get('APP_NAME'),
     'namespace'         => "boctulus\LongCookies", 
     'use_composer'      => false, // 
 
@@ -47,7 +49,7 @@ return [
         Ver 'log_sql'
     */
 
-    'debug'             => env('DEBUG'),
+    'debug'             => Env::get('DEBUG'),
 
     'log_file'          => 'log.txt',
     

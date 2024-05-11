@@ -8,11 +8,8 @@ return [
 
         __DIR__ . '/../app/core/helpers/system.php',
         __DIR__ . '/../app/core/helpers/env.php',
-        __DIR__ . '/../app/core/helpers/db.php',
         __DIR__ . '/../app/core/helpers/credits.php',
         __DIR__ . '/../app/core/scripts/admin.php',
-
-        __DIR__ . '/../app/helpers/money.php',
     ],
 
     'exclude' => [

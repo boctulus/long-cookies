@@ -118,6 +118,14 @@ register_activation_hook(__DIR__ . '/index.php', function(){
     }    
 });
 
+
+if (!function_exists('db_errors')){
+    function db_errors(bool $status){
+        global $wpdb;
+        $wpdb->show_errors = $status;
+    }
+}
+
 db_errors(false);
 
 

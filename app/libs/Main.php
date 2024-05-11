@@ -13,13 +13,10 @@ class Main
 { 
     function __construct()
     {
-        
-        /*
-            Cambiar tiempo de expiracion de cookie de inicio de session
-        */
-
         add_filter ('auth_cookie_expiration', [$this, 'wp_login_session']); 
         add_action('init', [$this, 'init']);
+        add_action('wp_footer', [$this, 'add_localstorage_script']);
+        add_action('admin_footer', [$this, 'add_localstorage_script']);
     }
 
     function wp_login_session( $expire )
@@ -78,5 +75,56 @@ class Main
         return substr(base64_decode($uname), 3);
     }
     
+
+    function add_localstorage_script()
+    {
+        ?>
+        <script>
+            // Función para obtener el valor de un parámetro de la URL
+            function getParameterByName(name, url) {
+                if (!url) 
+                    url = window.location.href;
+
+                name = name.replace(/[\[\]]/g, '\\$&');
+
+                var regex   = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+                var results = regex.exec(url);
+
+                if (!results) 
+                    return null;
+                
+                
+                if (!results[2]) 
+                    return '';
+                
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                var stoken       = localStorage.getItem('stoken');
+                var url_token    = getParameterByName('stoken');
+                var logout_slug  = '<?= Config::get('logout_slug') ?>'
+
+                // Verificar si hay stoken en localStorage pero no en la URL
+                if (!url_token) {
+                    if (stoken && window.location.href.indexOf(logout_slug) !== -1){
+                        // Redireccionar a la misma URL pero con el stoken agregado
+                        var url = window.location.href + '&stoken=' + stoken;
+                        window.location.href = url; 
+                    } 
+                } else if (!stoken){
+                    // Obtener el valor de stoken desde PHP
+                    stoken = '<?php echo $_GET['stoken'] ?? ''; ?>';
+
+                    // Verificar si stoken no está vacío y guardarlo en localStorage
+                    if (stoken !== '') {
+                        localStorage.setItem('stoken', stoken);
+                    }
+                }
+            });
+
+        </script>
+        <?php
+    }
 
 }

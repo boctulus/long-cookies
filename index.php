@@ -1,12 +1,5 @@
 <?php
 
-use boctulus\LongCookies\core\Constants;
-use boctulus\LongCookies\core\Router;
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\FrontController;
-
 /*
 	Plugin Name: Long Cookies
 	Description: Cookies extender

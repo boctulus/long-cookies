@@ -111,10 +111,10 @@ register_activation_hook(__DIR__ . '/index.php', function(){
 	}
 
     if (!get_transient(Config::get('namespace') . '__init')){    
-        require __DIR__ . '/scripts/on-ins.php';
+        require __DIR__ . '/scripts/boot/on-ins.php';
         set_transient(Config::get('namespace') . '__init', 1);
     } else {
-        require __DIR__ . '/scripts/on-act.php';
+        require __DIR__ . '/scripts/boot/on-act.php';
     }    
 });
 

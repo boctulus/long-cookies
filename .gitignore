@@ -9,3 +9,4 @@ tmp/
 storage/security/
 .env
 winpush.bat
+__releases/

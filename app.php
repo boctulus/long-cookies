@@ -97,4 +97,40 @@ if (!is_cli()){
     credits_to_author();
 }
 
+if (!in_array(Config::get('is_enabled'), [true, '1', 'on'])){
+	return;
+}
 
+register_activation_hook(__DIR__ . '/index.php', function(){
+	$log_dir = __DIR__ . '/logs';
+	
+	if (is_dir($log_dir)){
+		Files::globDelete($log_dir);
+	} else {
+		Files::mkdir($log_dir);
+	}
+
+    if (!get_transient(Config::get('namespace') . '__init')){    
+        require __DIR__ . '/scripts/on-ins.php';
+        set_transient(Config::get('namespace') . '__init', 1);
+    } else {
+        require __DIR__ . '/scripts/on-act.php';
+    }    
+});
+
+db_errors(false);
+
+
+// Mostrar errores
+if ((php_sapi_name() === 'cli') || (isset($_GET['show_errors']) && $_GET['show_errors'] == 1)){
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+} else {
+	if (Config::get('debug') == false){
+		error_reporting(E_ALL & ~E_WARNING);
+		error_reporting(0);
+	}	
+}
+
+require_once __DIR__ . '/main.php';

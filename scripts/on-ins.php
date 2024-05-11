@@ -1,6 +1,11 @@
 <?php
 
 use boctulus\LongCookies\core\libs\Config;
+use boctulus\LongCookies\core\libs\Logger;
+
+/*
+    A ejecutarse al instalar
+*/
 
 /*
     Seteo opciones la primera vez que se activa el plugin (al instalarse)
@@ -15,14 +20,11 @@ use boctulus\LongCookies\core\libs\Config;
 
 $options = Config::get('options');
 
-if (!empty($options) && !get_transient(Config::get('namespace') . '__init')){     
+if (!empty($options)){     
     foreach($options as $opt_name => $value){
         update_option($opt_name, $value);        
     }
-
-    set_transient(Config::get('namespace') . '__init', 1);
 }
-
 
 
 //require_once __DIR__ . '/db/01_link2product_metadata.php';

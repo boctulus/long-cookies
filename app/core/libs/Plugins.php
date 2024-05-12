@@ -358,7 +358,7 @@ class Plugins
     } 
 
     static function getVersion($plugin_name =  null){
-        if (!static::isActive($plugin_name)){
+        if ($plugin_name !== null && !static::isActive($plugin_name)){
             return false;
         }
 

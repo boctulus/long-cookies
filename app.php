@@ -10,8 +10,9 @@ use boctulus\LongCookies\core\libs\Config;
     Version: -- 
 */
 
-// Mostrar errores
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
 
 if ((php_sapi_name() === 'cli') || (isset($_GET['show_errors']) && $_GET['show_errors'] == 1)){
     ini_set('display_errors', 1);
@@ -20,9 +21,7 @@ if ((php_sapi_name() === 'cli') || (isset($_GET['show_errors']) && $_GET['show_e
 }
 
 require_once __DIR__   . '/app/core/Constants.php';
-
 require_once __DIR__   . '/app/core/libs/Env.php';
-
 require_once __DIR__   . '/app/core/helpers/debug.php';
 require_once __DIR__   . '/app/core/helpers/autoloader.php';
 

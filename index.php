@@ -9,10 +9,6 @@
 	Text Domain: long-cookies
 */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
-}
-
 require_once __DIR__ . '/app.php';
 
 

@@ -2,8 +2,7 @@
 
 use boctulus\LongCookies\core\libs\Posts;
 use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\Metabox;
-use boctulus\LongCookies\libs\TutorLMSWooSubsAutomation;
+use boctulus\LongCookies\core\libs\Logger;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -24,4 +23,3 @@ require_once __DIR__ . '/app.php';
 
 ////////////////////////////////////////////////
 
-here();

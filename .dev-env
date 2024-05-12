@@ -1,3 +1,3 @@
 ENABLED=1
 
-LOGOUT_SLUG='/wp-login.php?action=logout'
+LOGOUT_SLUG='logout'

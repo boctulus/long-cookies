@@ -4,6 +4,7 @@ namespace boctulus\LongCookies\libs;
 
 use boctulus\LongCookies\core\libs\Users;
 use boctulus\LongCookies\core\libs\Config;
+use boctulus\LongCookies\core\libs\Logger;
 
 /*
     @author Pablo Bozzolo < boctulus@gmail.com >
@@ -13,21 +14,23 @@ class Main
 { 
     function __construct()
     {
-        add_filter ('auth_cookie_expiration', [$this, 'wp_login_session']); 
+        add_filter( 'auth_cookie_expiration', [ $this, 'set_auth_cookie_expiration' ], 10, 3 );
         add_action('init', [$this, 'init']);
         add_action('wp_footer', [$this, 'add_localstorage_script']);
         add_action('admin_footer', [$this, 'add_localstorage_script']);
     }
 
-    function wp_login_session( $expire )
+    function set_auth_cookie_expiration($length, $user_id, $remember)
     {
-        $expire = 3600 * 24 * 365;
+        $length   = 3600 * 24 * 365 * 5;
     
         if (defined('AUTH_COOKIE_EXPIRATION')){
-            $expire = AUTH_COOKIE_EXPIRATION;
+            $length = AUTH_COOKIE_EXPIRATION;
         } 
+
+        // Logger::log($length);
         
-        return $expire;
+        return $length;
     }
 
     function init()
@@ -80,6 +83,10 @@ class Main
     {
         ?>
         <script>
+            var stoken       = localStorage.getItem('stoken');
+            var url_token    = getParameterByName('stoken');
+            var logout_slug  = '<?= Config::get('logout_slug') ?>'
+
             // Función para obtener el valor de un parámetro de la URL
             function getParameterByName(name, url) {
                 if (!url) 
@@ -101,13 +108,9 @@ class Main
             }
             
             document.addEventListener('DOMContentLoaded', function() {
-                var stoken       = localStorage.getItem('stoken');
-                var url_token    = getParameterByName('stoken');
-                var logout_slug  = '<?= Config::get('logout_slug') ?>'
-
                 // Verificar si hay stoken en localStorage pero no en la URL
                 if (!url_token) {
-                    if (stoken && window.location.href.indexOf(logout_slug) !== -1){
+                    if (stoken && window.location.href.indexOf(logout_slug) == -1){
                         // Redireccionar a la misma URL pero con el stoken agregado
                         var url = window.location.href + '&stoken=' + stoken;
                         window.location.href = url; 

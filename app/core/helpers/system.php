@@ -1,5 +1,6 @@
 <?php
 
+use boctulus\LongCookies\core\Constants;
 use boctulus\LongCookies\core\libs\StdOut;
 use boctulus\LongCookies\core\libs\System;
 
@@ -11,7 +12,7 @@ if (!function_exists('bg_com')) {
     */
     function bg_com(string $command, $output_path = null){
         $php = System::getPHP();
-        $dir = ROOT_PATH;
+        $dir = Constants::ROOT_PATH;
 
         $cmd = "$php {$dir}com $command";
         $pid = System::runInBackground($cmd, $output_path);

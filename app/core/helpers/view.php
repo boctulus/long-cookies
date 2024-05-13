@@ -130,7 +130,7 @@ function shortcode_asset($resource)
 
 function assets_url(?string $resource = null){    
     if (Files::isAbsolutePath($resource)){
-        $resource =  Strings::substract($resource, ROOT_PATH);
+        $resource =  Strings::substract($resource, Constants::ROOT_PATH);
     } else {
         $resource = 'assets/' . $resource;
     }

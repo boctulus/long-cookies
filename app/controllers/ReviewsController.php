@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\shortcodes\star_rating\StarRatingShortcode;
+use boctulus\TolScraper\shortcodes\star_rating\StarRatingShortcode;
 
 class ReviewsController
 {

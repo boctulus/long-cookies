@@ -1,10 +1,10 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\core\libs\Coupons;
-use boctulus\LongCookies\core\libs\Posts;
-use boctulus\LongCookies\core\libs\Users;
+use boctulus\TolScraper\core\libs\Coupons;
+use boctulus\TolScraper\core\libs\Posts;
+use boctulus\TolScraper\core\libs\Users;
 
 class CouponsController
 {

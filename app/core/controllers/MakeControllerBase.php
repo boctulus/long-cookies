@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\LongCookies\core\controllers;
+namespace boctulus\TolScraper\core\controllers;
 
-use boctulus\LongCookies\core\Constants;
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\Cache;
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Schema;
-use boctulus\LongCookies\core\libs\StdOut;
-use boctulus\LongCookies\core\libs\Factory;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\core\libs\i18n\Translate;
+use boctulus\TolScraper\core\Constants;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\Cache;
+use boctulus\TolScraper\core\libs\Files;
+use boctulus\TolScraper\core\libs\Schema;
+use boctulus\TolScraper\core\libs\StdOut;
+use boctulus\TolScraper\core\libs\Factory;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\libs\i18n\Translate;
 
 /*
     Class builder
@@ -458,7 +458,7 @@ class MakeControllerBase extends Controller
     }
 
     function controller($name, ...$opt) {
-        $namespace = 'boctulus\LongCookies\\controllers';
+        $namespace = 'boctulus\TolScraper\\controllers';
         $dest_path = Constants::CONTROLLERS_PATH;
         $template_path = self::TEMPLATES . ucfirst(__FUNCTION__) . '.php';
         $prefix = '';
@@ -468,7 +468,7 @@ class MakeControllerBase extends Controller
     }
 
     function console($name, ...$opt) {
-        $namespace = 'boctulus\LongCookies\\controllers';
+        $namespace = 'boctulus\TolScraper\\controllers';
         $dest_path = Constants::CONTROLLERS_PATH;
         $template_path = self::TEMPLATES . ucfirst(__FUNCTION__) . '.php';
         $prefix = '';
@@ -478,7 +478,7 @@ class MakeControllerBase extends Controller
     }
 
     function middleware($name, ...$opt) {
-        $namespace = 'boctulus\LongCookies\\middlewares';
+        $namespace = 'boctulus\TolScraper\\middlewares';
         $dest_path = Constants::MIDDLEWARES_PATH;
         $template_path = self::TEMPLATES . ucfirst(__FUNCTION__) . '.php';
         $prefix = '';
@@ -498,7 +498,7 @@ class MakeControllerBase extends Controller
     }
 
     function task($name, ...$opt) {
-        $namespace = 'boctulus\LongCookies\\jobs\\tasks';
+        $namespace = 'boctulus\TolScraper\\jobs\\tasks';
         $dest_path = Constants::TASKS_PATH;
         $template_path = self::TEMPLATES . ucfirst(__FUNCTION__) . '.php';
         $prefix = '';
@@ -517,10 +517,10 @@ class MakeControllerBase extends Controller
         }
 
         if ($core){
-            $namespace = 'boctulus\LongCookies\\core\\libs';
+            $namespace = 'boctulus\TolScraper\\core\\libs';
             $dest_path = Constants::CORE_LIBS_PATH;
         } else {
-            $namespace = 'boctulus\LongCookies\\libs';
+            $namespace = 'boctulus\TolScraper\\libs';
             $dest_path = Constants::LIBS_PATH;
         }
 
@@ -541,10 +541,10 @@ class MakeControllerBase extends Controller
         }
 
         if ($core){
-            $namespace = 'boctulus\LongCookies\\core\\traits';
+            $namespace = 'boctulus\TolScraper\\core\\traits';
             $dest_path = Constants::CORE_TRAIT_PATH;
         } else {
-            $namespace = 'boctulus\LongCookies\\traits';
+            $namespace = 'boctulus\TolScraper\\traits';
             $dest_path = Constants::TRAIT_PATH;
         }
 
@@ -564,10 +564,10 @@ class MakeControllerBase extends Controller
         }
 
         if ($core){
-            $namespace = 'boctulus\LongCookies\\core\\interfaces';
+            $namespace = 'boctulus\TolScraper\\core\\interfaces';
             $dest_path = Constants::CORE_INTERFACE_PATH;
         } else {
-            $namespace = 'boctulus\LongCookies\\interfaces';
+            $namespace = 'boctulus\TolScraper\\interfaces';
             $dest_path = Constants::INTERFACE_PATH;
         }
 
@@ -588,10 +588,10 @@ class MakeControllerBase extends Controller
         }
 
         if ($core){
-            $namespace = 'boctulus\LongCookies\\core\\helpers';
+            $namespace = 'boctulus\TolScraper\\core\\helpers';
             $dest_path = Constants::CORE_HELPERS_PATH;
         } else {
-            $namespace = 'boctulus\LongCookies\\helpers';
+            $namespace = 'boctulus\TolScraper\\helpers';
             $dest_path = Constants::HELPERS_PATH;
         }
 
@@ -1136,7 +1136,7 @@ class MakeControllerBase extends Controller
         $current = DB::getCurrentConnectionId(true);
 
         if ($current == config()['db_connection_default']){
-            $file = str_replace('namespace boctulus\LongCookies\schemas', 'namespace boctulus\LongCookies\schemas' . "\\$current", $file);
+            $file = str_replace('namespace boctulus\TolScraper\schemas', 'namespace boctulus\TolScraper\schemas' . "\\$current", $file);
 
             Files::mkDir(SCHEMA_PATH . $current);
             $dest_path = Constants::SCHEMA_PATH . "$current/". $filename;
@@ -1147,7 +1147,7 @@ class MakeControllerBase extends Controller
             if ($group){
                 $current = $group;
                 
-                $file = str_replace('namespace boctulus\LongCookies\schemas', 'namespace boctulus\LongCookies\schemas' . "\\$current", $file);
+                $file = str_replace('namespace boctulus\TolScraper\schemas', 'namespace boctulus\TolScraper\schemas' . "\\$current", $file);
                 Files::mkDir(Constants::SCHEMA_PATH . $current);
                 $dest_path = Constants::SCHEMA_PATH . "$current/". $filename;;
             } else {
@@ -1531,7 +1531,7 @@ class MakeControllerBase extends Controller
         
         $folder = '';
         if ($current == config()['db_connection_default']){
-            $file = str_replace('namespace boctulus\LongCookies\models', 'namespace boctulus\LongCookies\models' . "\\$current", $file);
+            $file = str_replace('namespace boctulus\TolScraper\models', 'namespace boctulus\TolScraper\models' . "\\$current", $file);
 
             Files::mkDir(MODELS_PATH . $current);
             $dest_path = Constants::MODELS_PATH . "$current/". $filename;
@@ -1542,7 +1542,7 @@ class MakeControllerBase extends Controller
             if ($group){
                 $current = $group;
                 
-                $file = str_replace('namespace boctulus\LongCookies\models', 'namespace boctulus\LongCookies\models' . "\\$current", $file);
+                $file = str_replace('namespace boctulus\TolScraper\models', 'namespace boctulus\TolScraper\models' . "\\$current", $file);
                 Files::mkDir(MODELS_PATH . $current);
                 $dest_path = Constants::MODELS_PATH . "$current/". $filename;
             } else {
@@ -1564,14 +1564,14 @@ class MakeControllerBase extends Controller
 
         if (!$no_check || $schemaless){
             if (!$schemaless){
-                $imports[] = "use boctulus\LongCookies\schemas\\$folder{$this->camel_case}Schema;";
+                $imports[] = "use boctulus\TolScraper\schemas\\$folder{$this->camel_case}Schema;";
             }
         
             Strings::replace('__SCHEMA_CLASS__', "{$this->camel_case}Schema", $file); 
 
             $uuid = $this->getUuid();
             if ($uuid){
-                $imports[] = 'use boctulus\LongCookies\core\traits\Uuids;';
+                $imports[] = 'use boctulus\TolScraper\core\traits\Uuids;';
                 $traits[] = 'use Uuids;';      
             }
 

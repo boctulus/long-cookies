@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\LongCookies\models;
+namespace boctulus\TolScraper\models;
 
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\Model;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\Model;
 
 class MyModel extends Model {
     function wp(){

@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\LongCookies\core\libs\WPNotices;
+use boctulus\TolScraper\core\libs\WPNotices;
 
 /*
     Ej:

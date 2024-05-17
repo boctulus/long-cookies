@@ -1,10 +1,10 @@
 <?php
 
-namespace boctulus\LongCookies\middlewares;
+namespace boctulus\TolScraper\middlewares;
 
-use boctulus\LongCookies\core\Middleware;
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\Strings;
+use boctulus\TolScraper\core\Middleware;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\Strings;
 
 class __NAME__ extends Middleware
 {   

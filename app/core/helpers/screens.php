@@ -1,7 +1,7 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\core\libs\Url;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\libs\Url;
 
 /*
     Deberia mergearse con la lib Page

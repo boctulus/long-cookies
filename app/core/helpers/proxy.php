@@ -1,7 +1,7 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\ApiClient;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\ApiClient;
 
 function get_api_client(string $url){
     $config        = Config::get();

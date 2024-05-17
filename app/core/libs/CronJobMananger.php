@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\System;
+use boctulus\TolScraper\core\libs\System;
 
 class CronJobMananger
 {

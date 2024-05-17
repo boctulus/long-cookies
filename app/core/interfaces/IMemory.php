@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\LongCookies\traits;
+namespace boctulus\TolScraper\traits;
 
 /*
     Taken (and modified) from 

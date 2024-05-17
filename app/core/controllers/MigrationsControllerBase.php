@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\LongCookies\core\controllers;
+namespace boctulus\TolScraper\core\controllers;
 
 use Migrations;
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\Constants;
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\Schema;
-use boctulus\LongCookies\core\libs\StdOut;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\controllers\MakeController;
-use boctulus\LongCookies\core\libs\PHPLexicalAnalyzer;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\Constants;
+use boctulus\TolScraper\core\libs\Files;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\Schema;
+use boctulus\TolScraper\core\libs\StdOut;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\controllers\MakeController;
+use boctulus\TolScraper\core\libs\PHPLexicalAnalyzer;
 
 /*
     Migration commands

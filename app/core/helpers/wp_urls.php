@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Strings;
+use boctulus\TolScraper\core\libs\Strings;
 
 function plugin_url(){
     return base_url() . '/wp-content/plugins/' . plugin_name();

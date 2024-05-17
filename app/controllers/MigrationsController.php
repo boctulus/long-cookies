@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\core\controllers\MigrationsControllerBase;
+use boctulus\TolScraper\core\controllers\MigrationsControllerBase;
 
 class MigrationsController extends MigrationsControllerBase
 {

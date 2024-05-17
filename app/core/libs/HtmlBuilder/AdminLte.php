@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\LongCookies\core\libs\HtmlBuilder;
+namespace boctulus\TolScraper\core\libs\HtmlBuilder;
 
-use boctulus\LongCookies\core\libs\Arrays;
-use boctulus\LongCookies\core\libs\Strings;
+use boctulus\TolScraper\core\libs\Arrays;
+use boctulus\TolScraper\core\libs\Strings;
 
 /*
     Re-implementar:

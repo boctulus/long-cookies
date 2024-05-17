@@ -1,11 +1,11 @@
 <?php
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Arrays;
-use boctulus\LongCookies\core\libs\Strings;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\Files;
+use boctulus\TolScraper\core\libs\Arrays;
+use boctulus\TolScraper\core\libs\Strings;
 
 class Paginator
 {

@@ -1,9 +1,9 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Url;
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\core\libs\ApiClient;
+use boctulus\TolScraper\core\libs\Url;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\libs\ApiClient;
 
 /*
     Returns BASE_URL to be used in the FrontEnd

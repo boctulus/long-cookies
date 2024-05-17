@@ -1,10 +1,10 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\Users;
-use boctulus\LongCookies\core\libs\TutorLMS;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\Users;
+use boctulus\TolScraper\core\libs\TutorLMS;
 
 /*
     Este controlador es para demostrar capacidades de una libreria

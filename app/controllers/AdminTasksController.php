@@ -1,16 +1,16 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\libs\Import;
-use boctulus\LongCookies\core\libs\XML;
-use boctulus\LongCookies\core\libs\Dokan;
-use boctulus\LongCookies\core\libs\Users;
-use boctulus\LongCookies\core\libs\Logger;
-use boctulus\LongCookies\core\libs\System;
-use boctulus\LongCookies\core\libs\Request;
-use boctulus\LongCookies\core\libs\Products;
-use boctulus\LongCookies\core\libs\DB;
+use boctulus\TolScraper\libs\Import;
+use boctulus\TolScraper\core\libs\XML;
+use boctulus\TolScraper\core\libs\Dokan;
+use boctulus\TolScraper\core\libs\Users;
+use boctulus\TolScraper\core\libs\Logger;
+use boctulus\TolScraper\core\libs\System;
+use boctulus\TolScraper\core\libs\Request;
+use boctulus\TolScraper\core\libs\Products;
+use boctulus\TolScraper\core\libs\DB;
 
 class AdminTasksController
 {

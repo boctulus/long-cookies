@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\LongCookies\providers;
+namespace boctulus\TolScraper\providers;
 
 class __NAME__ 
 {

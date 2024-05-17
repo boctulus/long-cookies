@@ -4,9 +4,9 @@
     @author  Pablo Bozzolo boctulus@gmail.com
 */
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\Logger;
+use boctulus\TolScraper\core\libs\Logger;
 
 /*
     Integracion con WooCommerce Memberships 

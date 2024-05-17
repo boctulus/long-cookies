@@ -1,12 +1,12 @@
 <?php declare(strict_types = 1);
 
-use boctulus\LongCookies\core\libs\Debug;
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Logger;
-use boctulus\LongCookies\core\libs\StdOut;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\core\libs\VarDump;
-use boctulus\LongCookies\core\Constants;
+use boctulus\TolScraper\core\libs\Debug;
+use boctulus\TolScraper\core\libs\Files;
+use boctulus\TolScraper\core\libs\Logger;
+use boctulus\TolScraper\core\libs\StdOut;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\libs\VarDump;
+use boctulus\TolScraper\core\Constants;
 
 if (!function_exists('show_debug_trace')){
     function show_debug_trace(bool $status = true){

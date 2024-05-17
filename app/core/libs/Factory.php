@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\Validator;
-use boctulus\LongCookies\core\libs\Request;
+use boctulus\TolScraper\core\libs\Validator;
+use boctulus\TolScraper\core\libs\Request;
 
 
 /*

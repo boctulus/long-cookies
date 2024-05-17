@@ -1,8 +1,8 @@
 <?php
 
-use boctulus\LongCookies\core\Constants;
-use boctulus\LongCookies\core\libs\StdOut;
-use boctulus\LongCookies\core\libs\System;
+use boctulus\TolScraper\core\Constants;
+use boctulus\TolScraper\core\libs\StdOut;
+use boctulus\TolScraper\core\libs\System;
 
 if (!function_exists('bg_com')) {
     /*

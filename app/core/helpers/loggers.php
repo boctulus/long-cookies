@@ -1,8 +1,8 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\Logger;
+use boctulus\TolScraper\core\libs\Files;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\Logger;
 
 /*
     Requiere que este habilitado el modo debug

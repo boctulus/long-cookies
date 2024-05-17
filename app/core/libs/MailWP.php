@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\MailBase;
+use boctulus\TolScraper\core\libs\MailBase;
 
 /*
     wp_mail() wrapper

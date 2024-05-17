@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\models;
+namespace boctulus\TolScraper\models;
 
-use boctulus\LongCookies\models\MyModel;
+use boctulus\TolScraper\models\MyModel;
 ### IMPORTS
 
 class __NAME__ extends MyModel

@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\LongCookies\exceptions;
+namespace boctulus\TolScraper\core\exceptions;
 
 class SqlException extends \Exception {
 

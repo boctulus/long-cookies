@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\LongCookies\core\libs\CronJob;
+use boctulus\TolScraper\core\libs\CronJob;
 
 class __NAME__ extends CronJob
 {

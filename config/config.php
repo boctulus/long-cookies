@@ -1,25 +1,16 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Env;
+use boctulus\TolScraper\core\libs\Env;
 
 
 return [
     'is_enabled' => Env::get('ENABLED', true),
 
-    /*
-        [1:22 pm, 11/04/2024] ALVARO zelaya: 
-        
-        Creo entonces que debo mencionarte que el logout de la app es con este url
-        https://kaviapp.com/ec
-    */
-    
-    'logout_slug'  => Env::get('LOGOUT_SLUG'),  
-
     ////////////////////////////////////////////////////////////////////////////////
 
     'options' => [
-        'op1' => 'value 1',
-        'op2' => 'value 2'
+    //     'op1' => 'value 1',
+    //     'op2' => 'value 2'
     ],
     
 	// "field_separator" => ";",
@@ -34,7 +25,7 @@ return [
     //
 
     'app_name'          => Env::get('APP_NAME'),
-    'namespace'         => "boctulus\LongCookies", 
+    'namespace'         => "boctulus\TolScraper", 
     'use_composer'      => false, // 
 
     /*

@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\models\MyModel;
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\Schema;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\exceptions\SqlException;
+use boctulus\TolScraper\models\MyModel;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\Schema;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\exceptions\SqlException;
 
 class DB 
 {
@@ -28,6 +28,16 @@ class DB
 	const ORACLE     = 'oracle';
 	const SYBASE     = 'sybase';
 	const FIREBIRD   = 'firebird';
+	
+	static function getTablePrefix(){
+		$curr_conn_id = static::$current_id_conn;
+
+		if (static::$current_id_conn == null){
+			$curr_conn_id = DB::getDefaultConnectionId();
+		}
+
+		return Config::get("db_connections.{$curr_conn_id}.tb_prefix");
+	}
 
 	// Util para establecer la PRIMARY KEY por defecto en caso de que no haya scheme definido
 	public static function setPrimaryKeyName(string $name){

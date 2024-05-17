@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
 /*
     Antes de ...$args podria incluirse un $exp_time en segundos

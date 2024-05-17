@@ -1,7 +1,7 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\Model;
-use boctulus\LongCookies\core\libs\Factory;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\Model;
+use boctulus\TolScraper\core\libs\Factory;
 

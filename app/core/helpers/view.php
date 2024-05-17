@@ -1,11 +1,15 @@
 <?php
 
-use boctulus\LongCookies\core\Constants;
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\Plugins;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\core\libs\Templates;
+use boctulus\TolScraper\core\libs\Env;
+
+use boctulus\TolScraper\core\libs\Url;
+use boctulus\TolScraper\core\Constants;
+use boctulus\TolScraper\core\libs\Files;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\Plugins;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\libs\Templates;
+
 
 /*
     @author Pablo Bozzolo < boctulus@gmail.com >
@@ -108,22 +112,27 @@ function plugin_name(){
 */
 function shortcode_asset($resource)
 {   
-    $protocol = is_cli() ? 'http' : httpProtocol();
-    
-    $resource = Strings::substract($resource, Constants::SHORTCODES_PATH);
-    $resource = str_replace('\\', '/', $resource);
+    $resource = Files::convertSlashes($resource, Files::LINUX_DIR_SLASH);
+
+    $resource = Strings::substract($resource, 
+        Files::normalize(Constants::SHORTCODES_PATH, Files::LINUX_DIR_SLASH)
+    );
+
     $resource = str_replace('/views/', '/assets/', $resource);
     
-    $base     = Config::get()['base_url'] ?? '';
+    $base = Config::get('base_url') ?? '';
 
     if (Strings::endsWith('/', $base)){
         $base = substr($base, 0, -1); 
     }
+    
+    $protocol = is_cli() ? 'http'              : httpProtocol();
+    $domain   = is_cli() ? Env::get('APP_URL') : $_SERVER['HTTP_HOST'];
 
-    $url  = $protocol . '://' . ($_SERVER['HTTP_HOST'] ?? env('APP_URL')) . '/wp-content/plugins/' . Plugins::currentName()  . '/app/shortcodes/';
-    $url .= $resource;
+    $f          = explode('/', str_replace('\\', '/', __DIR__));
+    $plugin_dir = $f[count($f)-4];
 
-    $url = Files::normalize($url, '/');
+    $url = "$protocol://$domain/wp-content/plugins/$plugin_dir/app/shortcodes/$resource";
 
     return $url;    
 }

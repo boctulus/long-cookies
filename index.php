@@ -1,12 +1,12 @@
 <?php
 
 /*
-	Plugin Name: Long Cookies
-	Description: Cookies extender
-	Version: 1.5.0
+	Plugin Name: TOL Scraper
+	Description: Robot
+	Version: 1.0.0
 	Author: Pablo Bozzolo
 	Domain Path:  /languages
-	Text Domain: long-cookies
+	Text Domain: tol-scraper
 */
 
 require_once __DIR__ . '/app.php';

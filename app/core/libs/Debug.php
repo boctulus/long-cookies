@@ -4,7 +4,7 @@
     @author  Pablo Bozzolo boctulus@gmail.com
 */
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
 class Debug
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\core\libs\Date;
-use boctulus\LongCookies\core\libs\Logger;
-use boctulus\LongCookies\core\libs\CronJob;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\controllers\MyController;
+use boctulus\TolScraper\core\libs\Date;
+use boctulus\TolScraper\core\libs\Logger;
+use boctulus\TolScraper\core\libs\CronJob;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\controllers\MyController;
 
 class InflatorController
 {
@@ -30,7 +30,7 @@ class InflatorController
                 (
                     [id] => 1696
                     [queue] => procesar_cat
-                    [object] => O:46:"boctulus\LongCookies\background\tasks\ProcesarCategoria":0:{}
+                    [object] => O:46:"boctulus\TolScraper\background\tasks\ProcesarCategoria":0:{}
                     [params] => a:1:{i:0;s:171:"a:3:{s:4:"slug";s:39:"/bambino/abbigliamento-bimba/pantalone/";s:4:"name";s:9:"Pantaloni";s:4:"link";s:61:"https://www.giglio.com/bambino/abbigliamento-bimba/pantalone/";}";}
                     [created_at] => 0000-00-00 00:00:00
                 )

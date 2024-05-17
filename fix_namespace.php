@@ -19,8 +19,8 @@ if (php_sapi_name() != "cli"){
 	]
 */
 
-$search  = 'boctulus\\SW\\';
-$replace = 'boctulus\\LongCookies\\';
+$search  = 'simplerest\\';
+$replace = 'boctulus\\TolScraper\\';
 
 
 searchAndReplaceInFiles(__DIR__, '*.php', $search, $replace);

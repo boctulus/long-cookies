@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Arrays;
+use boctulus\TolScraper\core\libs\Files;
+use boctulus\TolScraper\core\libs\Arrays;
 
 /*
 	- Si se excede el POST Content-Length (post_max_size) ...

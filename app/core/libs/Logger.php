@@ -1,10 +1,10 @@
 <?php 
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\Constants;
-use boctulus\LongCookies\core\libs\Files;
-use boctulus\LongCookies\core\libs\Config;
+use boctulus\TolScraper\core\Constants;
+use boctulus\TolScraper\core\libs\Files;
+use boctulus\TolScraper\core\libs\Config;
 
 /*
 	Idealmente implementar PSR 3 logger

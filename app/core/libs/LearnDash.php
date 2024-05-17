@@ -4,9 +4,9 @@
     @author Pablo Bozzolo < boctulus@gmail.com >
 */
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\Posts;
+use boctulus\TolScraper\core\libs\Posts;
 
 // if (!class_exists('WpProQuiz_Model_AnswerTypes')){
 //     require_once WP_ROOT_PATH . 'wp-content/plugins/sfwd-lms/includes/lib/wp-pro-quiz/lib/model/WpProQuiz_Model_AnswerTypes.php';

@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\schemas;
+namespace boctulus\TolScraper\schemas;
 
-use boctulus\LongCookies\core\interfaces\ISchema;
+use boctulus\TolScraper\core\interfaces\ISchema;
 
 ### IMPORTS
 

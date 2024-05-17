@@ -1,3 +1,6 @@
 ENABLED=1
 
-LOGOUT_SLUG='logout'
+APP_URL='http://woo9.lan'
+
+ROBOT_PATH='D:\python\selenium\store-scraper'
+PYTHON_BINARY='C:\Python310\python.exe'

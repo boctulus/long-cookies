@@ -4,10 +4,10 @@
     @author  Pablo Bozzolo boctulus@gmail.com
 */
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\core\libs\Arrays;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\libs\Arrays;
 
 /*
     @author Pablo Bozzolo

@@ -1,8 +1,8 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Users;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\libs\TutorLMSWooSubsAutomation;
+use boctulus\TolScraper\core\libs\Users;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\libs\TutorLMSWooSubsAutomation;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -35,12 +35,6 @@ if (php_sapi_name() == "cli"){
 
 ///////////////////////////////////////////////////
 
-$uids = Users::getUserIDList();
 
-foreach ($uids as $uid){
-    dd("Automatizando por user_id=$uid");
-    TutorLMSWooSubsAutomation::run($uid);
-}
-
-
+/// CODIGO ...
 

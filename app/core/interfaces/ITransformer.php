@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\core\interfaces;
+namespace boctulus\TolScraper\core\interfaces;
 
-use boctulus\LongCookies\controllers\Controller;
+use boctulus\TolScraper\controllers\Controller;
 
 interface ITransformer {
     function transform(object $user, Controller $controller = NULL);

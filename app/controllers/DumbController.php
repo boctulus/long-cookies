@@ -1,22 +1,22 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\Model;
-use boctulus\LongCookies\core\libs\Logger;
-use boctulus\LongCookies\core\libs\Schema;
-use boctulus\LongCookies\core\libs\StdOut;
-use boctulus\LongCookies\core\libs\System;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\core\libs\JobQueue;
-use boctulus\LongCookies\core\libs\Paginator;
-use boctulus\LongCookies\background\tasks\UnaTask;
-use boctulus\LongCookies\background\tasks\OtraTask;
-use boctulus\LongCookies\core\libs\CronJobMananger;
-use boctulus\LongCookies\background\tasks\ProcesarCategoria;
-use boctulus\LongCookies\core\controllers\MakeControllerBase;
-use boctulus\LongCookies\shortcodes\star_rating\StarRatingShortcode;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\Model;
+use boctulus\TolScraper\core\libs\Logger;
+use boctulus\TolScraper\core\libs\Schema;
+use boctulus\TolScraper\core\libs\StdOut;
+use boctulus\TolScraper\core\libs\System;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\core\libs\JobQueue;
+use boctulus\TolScraper\core\libs\Paginator;
+use boctulus\TolScraper\background\tasks\UnaTask;
+use boctulus\TolScraper\background\tasks\OtraTask;
+use boctulus\TolScraper\core\libs\CronJobMananger;
+use boctulus\TolScraper\background\tasks\ProcesarCategoria;
+use boctulus\TolScraper\core\controllers\MakeControllerBase;
+use boctulus\TolScraper\shortcodes\star_rating\StarRatingShortcode;
 
 class DumbController
 {

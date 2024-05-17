@@ -1,12 +1,12 @@
 <?php
 
-namespace boctulus\LongCookies\core;
+namespace boctulus\TolScraper\core;
 
-use boctulus\LongCookies\core\libs\Url;
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\Logger;
-use boctulus\LongCookies\core\libs\Request;
-use boctulus\LongCookies\core\libs\Strings;
+use boctulus\TolScraper\core\libs\Url;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\Logger;
+use boctulus\TolScraper\core\libs\Request;
+use boctulus\TolScraper\core\libs\Strings;
 
 class Router
 {

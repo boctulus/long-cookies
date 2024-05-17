@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\background\tasks;
+namespace boctulus\TolScraper\background\tasks;
 
-use boctulus\LongCookies\core\libs\Task;
+use boctulus\TolScraper\core\libs\Task;
 
 class __NAME__ extends Task
 { 

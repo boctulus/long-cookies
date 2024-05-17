@@ -1,6 +1,6 @@
 <?php 
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
 class Device
 {

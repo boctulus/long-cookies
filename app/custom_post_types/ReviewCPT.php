@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\custom_post_types;
+namespace boctulus\TolScraper\custom_post_types;
 
-use boctulus\LongCookies\core\libs\CPT;
+use boctulus\TolScraper\core\libs\CPT;
 
 class ReviewCPT extends CPT
 {

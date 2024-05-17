@@ -1,13 +1,13 @@
 <?php
 
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\models\MyModel;
-use boctulus\LongCookies\core\libs\Model;
-use boctulus\LongCookies\core\libs\Logger;
-use boctulus\LongCookies\core\libs\StdOut;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\controllers\MigrationsController;
-use boctulus\LongCookies\core\controllers\MakeControllerBase;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\models\MyModel;
+use boctulus\TolScraper\core\libs\Model;
+use boctulus\TolScraper\core\libs\Logger;
+use boctulus\TolScraper\core\libs\StdOut;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\controllers\MigrationsController;
+use boctulus\TolScraper\core\controllers\MakeControllerBase;
 
 /*
     @param Array ...$args por ejemplo "--dir=$folder", "--to=$tenant"
@@ -177,7 +177,7 @@ function get_model_namespace($tenant_id = null){
         }
     }
 
-    return '\\boctulus\LongCookies\\models\\' . $extra;
+    return '\\boctulus\TolScraper\\models\\' . $extra;
 }
 
 function get_model_name($table_name, $tenant_id = null){
@@ -197,7 +197,7 @@ function get_model_name($table_name, $tenant_id = null){
         }
     }
 
-    return '\\boctulus\LongCookies\\models\\' . $extra . Strings::snakeToCamel($table_name). 'Model';
+    return '\\boctulus\TolScraper\\models\\' . $extra . Strings::snakeToCamel($table_name). 'Model';
 }
 
 function get_user_model_name(){
@@ -269,7 +269,7 @@ function get_schema_name($table_name, $tenant_id = null){
         }
     }
 
-    return '\\boctulus\LongCookies\\schemas\\' . $extra . Strings::snakeToCamel($table_name). 'Schema';
+    return '\\boctulus\TolScraper\\schemas\\' . $extra . Strings::snakeToCamel($table_name). 'Schema';
 }
 
 function has_schema($table_name, $tenant_id = null){
@@ -540,7 +540,7 @@ function get_pivot(Array $tables, ?string $tenant_id = null){
     $dir = get_schema_path(null, $tenant_id);
     
     if (!file_exists($dir . 'Pivots.php')){
-        \boctulus\LongCookies\core\libs\StdOut::hideResponse();
+        \boctulus\TolScraper\core\libs\StdOut::hideResponse();
 
         $mk = new MakeControllerBase();
 
@@ -550,7 +550,7 @@ function get_pivot(Array $tables, ?string $tenant_id = null){
             $mk->pivot_scan();
         }
 
-        \boctulus\LongCookies\core\libs\StdOut::showResponse();
+        \boctulus\TolScraper\core\libs\StdOut::showResponse();
     }
 
     include $dir . 'Pivots.php';

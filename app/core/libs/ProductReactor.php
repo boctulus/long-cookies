@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
 /*
    	@author Pablo Bozzolo (2020-2022)

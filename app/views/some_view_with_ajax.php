@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Url;
+use boctulus\TolScraper\core\libs\Url;
 ?>
 
 <script>

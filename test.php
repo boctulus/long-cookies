@@ -1,8 +1,8 @@
 <?php
 
-use boctulus\LongCookies\core\libs\Posts;
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\Logger;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\Logger;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -23,3 +23,13 @@ require_once __DIR__ . '/app.php';
 
 ////////////////////////////////////////////////
 
+
+dd(shortcode_asset('/img/no-image.jpg'));
+
+exit;
+
+DB::getConnection('robot');
+
+dd(
+	DB::getTablePrefix(), 'TB PREFIX'
+);

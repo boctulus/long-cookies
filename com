@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use boctulus\LongCookies\core\FrontController;
+use boctulus\TolScraper\core\FrontController;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -20,8 +20,8 @@ require_once ABSPATH . '/wp-load.php';
 /* Helpers */
 
 $helper_dirs = [
-    __DIR__ . '/core/helpers', 
-    __DIR__ . '/helpers'
+#    __DIR__ . '/app/core/helpers', 
+#    __DIR__ . '/app/helpers'
 ];
 
 $excluded    = [

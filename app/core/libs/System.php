@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\Constants;
+use boctulus\TolScraper\core\Constants;
 
 class System
 {
@@ -103,9 +103,91 @@ class System
         }
 
         $location =  System::isWindows() ? shell_exec("where.exe php.exe") : "php";
+
+        if (empty($location)){
+            throw new \Exception("Impossible to find php location");
+        }
         
         return  $location;
     }
+
+    /*
+        Parsea la salida de exec() en PowerShell en busca del PID
+
+        0 => '',
+        1 => 'Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName',
+        2 => '-------  ------    -----      -----     ------     --  -- -----------',
+        3 => '     20       5      432       2148       0,02  16600   1 python',
+        4 => '',
+        5 => '',
+
+    */
+    static function parseWindowsPID(array $output)
+    {
+        foreach ($output as $lx => $line){
+            // Primero busco cabecera
+            if (Strings::startsWith('Handles', $line) && Strings::endsWith('ProcessName', $line)){
+                $cols = explode(' ', Strings::removeMultipleSpaces(trim($line)));
+
+                $col_pos = false;
+                foreach ($cols as $ix => $col){
+                    if (strtolower($col) == 'id'){
+                        $col_pos = $ix;
+                        $lc = $lx + 2;
+                        continue 2;
+                    }
+                }
+            }  
+            
+            if (isset($lc) && $lx == $lc){
+                $data = explode(' ', Strings::removeMultipleSpaces(trim($line)));
+                return $data[$col_pos];
+            }
+        }
+
+        return null;
+    }
+
+    static function execInBackgroundWindows($filePath, $workingDirectory = null, $arguments = null, bool $hidden = false) 
+    {
+        try {
+            $cmd = "powershell.exe Start-Process -FilePath '$filePath'";
+        
+            // $cmd .= "  -ExecutionPolicy Bypass";
+
+            if ($hidden){
+                $cmd .= " -WindowStyle hidden";
+            }
+
+            if (!empty($workingDirectory)){
+                chdir($workingDirectory);
+                $cmd .= " -WorkingDirectory $workingDirectory";
+            }
+            
+            if (!empty($arguments)){
+                if (is_array($arguments)){
+                    $arguments = implode(' ', $arguments);
+                }
+
+                $cmd .= " -ArgumentList '$arguments'";
+            }
+
+            // $cmd .= " -RedirectStandardOutput '$workingDirectory/logs/log.txt' -RedirectStandardError '$workingDirectory/logs/error-log.txt'";
+
+            $cmd .= " -PassThru ";
+
+            exec($cmd, $output, $result_code);
+
+            Files::varExport($output, ETC_PATH . '/toparse.php');
+
+            // Devolver el PID
+            return !empty($output) ? static::parseWindowsPID($output) : null;
+
+        } catch (\Exception $e){
+           Logger::logError($e);
+        }
+    } 
+
 
     /*
         https://factory.dev/pimcore-knowledge-base/how-to/execute-php-pimcore
@@ -114,7 +196,7 @@ class System
         https://gist.github.com/damienalexandre/1300820
         https://stackoverflow.com/questions/13257571/call-command-vs-start-with-wait-option
     */
-    static function runInBackground(string $cmd, $output_path = null, $ignore_user_abort = true, int $execution_time = null, $working_dir = null)
+    static function runInBackground(string $cmd, $output_path = null, $ignore_user_abort = true, int $execution_time = null, $working_dir = null, bool $debug = false)
     {
         ignore_user_abort($ignore_user_abort);
 
@@ -125,32 +207,35 @@ class System
         $working_dir = $working_dir ?? ROOT_PATH;
 
         if ($working_dir){
+            if ($working_dir){
+                dd("cd '$working_dir'");
+            }
+
 		    chdir($working_dir);
         }
 
+        if ($debug){
+            dd(PHP_OS_FAMILY, 'OS');
+        }
+
+        $pid = null;
         switch (PHP_OS_FAMILY) {
             case 'Windows':
-                if ($output_path !== null){
-                    $cmd .= " >> $output_path";
-                }
-    
-                $WshShell = new \COM("WScript.Shell");
-                $oExec = $WshShell->Exec($cmd);
-                $pid = (int) $oExec->ProcessID;
-                $WshShell = null;
-    
+                $pid = static::execInBackgroundWindows($cmd, $working_dir, null, true);
+
                 break;
             case 'Linux':
-                if ($output_path !== null){
-                    $pid = (int) shell_exec("nohup nice -n 19 $cmd > $output_path 2>&1 & echo $!");
-                } else {
-                    $pid = (int) shell_exec("nohup nice -n 19 $cmd > /dev/null 2>&1 & echo $!");
-                }
-
+                $cmd = ($output_path !== null) ? "nohup $cmd > $output_path 2>&1 & echo $!" : "nohup $cmd > /dev/null 2>&1 & echo $!";
+                
+                $pid = (int) shell_exec($cmd);                
                 break;
             default:
             // unsupported
             return false;
+        }
+
+        if ($debug){
+            dd($cmd, 'CMD');
         }
 
         return $pid ?? null;
@@ -208,11 +293,15 @@ class System
     }
 
     /*
-        Ejecuta un comando / script situandose primero en el directorio especificado
+        Ejecuta un comando situandose primero en el directorio especificado
 
         Ej:
 
-        $git_log_repo_1 = System::execAt("git log", $path_repo_1)
+        $git_log_repo_1 = System::execAt("git log", $repository_path)
+
+        Ej:
+
+        $res = System::execAt(Env::get('PYTHON_BINARY') . " index.py", Env::get('ROBOT_PATH'), 'pablotol.json');
     */
     static function execAt(string $command, string $dir, ...$args){
         $extra = implode(' ', array_values($args));
@@ -227,7 +316,7 @@ class System
     }
 
     /*
-        Ejecuta un comando / script situandose primero en el root del proyecto
+        Ejecuta un comando situandose primero en el root del proyecto
     */
     static function execAtRoot(string $command, ...$args){
         return static::execAt($command, ROOT_PATH, ...$args);
@@ -241,7 +330,8 @@ class System
         Ejecuta un comando "com"
     */
     static function com(string $command, ...$args){
-        return static::execAtRoot(static::getPHP() . " com $command", ...$args);
+        $dir = ROOT_PATH;
+        return static::execAtRoot(static::getPHP() . " {$dir}com $command", ...$args);
     }
 
 
@@ -388,8 +478,8 @@ class System
         Uncaught TypeError: shuffle(): Argument #1 ($array) must be of type array, null given in /home/fwbibudd/public_html/wp-content/plugins/giglio-sync/libs/Sync.php:352
         Stack trace:
         #0 /home/fwbibudd/public_html/wp-content/plugins/giglio-sync/libs/Sync.php(352): shuffle(NULL)
-        #1 /home/fwbibudd/public_html/wp-content/plugins/giglio-sync/libs/Sync.php(495): boctulus\LongCookies\libs\Sync::processCategory(Array)
-        #2 /home/fwbibudd/public_html/wp-content/plugins/giglio-sync/sync.php(69): boctulus\LongCookies\libs\Sync::init()
+        #1 /home/fwbibudd/public_html/wp-content/plugins/giglio-sync/libs/Sync.php(495): boctulus\SW\libs\Sync::processCategory(Array)
+        #2 /home/fwbibudd/public_html/wp-content/plugins/giglio-sync/sync.php(69): boctulus\SW\libs\Sync::init()
         #3 {main}
         thrown
         /home/fwbibudd/public_html/wp-content/plugins/giglio-sync/libs/Sync.php
@@ -421,7 +511,7 @@ class System
             }
 
             if ($filename !== false){
-                file_put_contents(Constants::LOGS_PATH . $filename, $msg);
+                file_put_contents(LOGS_PATH . $filename, $msg);
             }
         });
     }

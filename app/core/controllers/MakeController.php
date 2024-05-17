@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\core\controllers\MakeControllerBase;
+use boctulus\TolScraper\core\controllers\MakeControllerBase;
 
 class MakeController extends MakeControllerBase
 {

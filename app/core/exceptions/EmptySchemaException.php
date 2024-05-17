@@ -1,5 +1,5 @@
 <?php
 
-namespace boctulus\LongCookies\exceptions;
+namespace boctulus\TolScraper\exceptions;
 
 class EmptySchemaException extends \Exception {}

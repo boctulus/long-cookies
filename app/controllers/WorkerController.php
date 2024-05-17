@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\LongCookies\controllers;
+namespace boctulus\TolScraper\controllers;
 
-use boctulus\LongCookies\core\libs\Logger;
-use boctulus\LongCookies\core\libs\System;
+use boctulus\TolScraper\core\libs\Logger;
+use boctulus\TolScraper\core\libs\System;
 
 class WorkerController
 {

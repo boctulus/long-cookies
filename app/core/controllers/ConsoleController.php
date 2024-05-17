@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\LongCookies\core\controllers;
+namespace boctulus\TolScraper\core\controllers;
 
 class ConsoleController extends Controller
 {

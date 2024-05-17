@@ -1,9 +1,9 @@
 <?php
 
-use boctulus\LongCookies\core\Constants;
-use boctulus\LongCookies\core\libs\Logger;
-use boctulus\LongCookies\core\libs\Plugins;
-use boctulus\LongCookies\core\libs\Strings;
+use boctulus\TolScraper\core\Constants;
+use boctulus\TolScraper\core\libs\Logger;
+use boctulus\TolScraper\core\libs\Plugins;
+use boctulus\TolScraper\core\libs\Strings;
 
 function get_text_domain(){
     return Plugins::getTextDomain();

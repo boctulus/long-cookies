@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\LongCookies\core\interfaces;
+namespace boctulus\TolScraper\core\interfaces;
 
 interface IValidator {
     function validate(array $data, array $rules, $fillables = null);

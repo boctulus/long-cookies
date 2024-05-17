@@ -1,11 +1,11 @@
 <?php
 
-namespace boctulus\LongCookies\core\controllers;
+namespace boctulus\TolScraper\core\controllers;
 
-use boctulus\LongCookies\core\libs\Config;
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\StdOut;
-use boctulus\LongCookies\core\traits\ExceptionHandler;
+use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\StdOut;
+use boctulus\TolScraper\core\traits\ExceptionHandler;
 
 abstract class Controller
 {

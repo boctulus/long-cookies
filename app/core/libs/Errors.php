@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\traits\ExceptionHandler;
+use boctulus\TolScraper\core\traits\ExceptionHandler;
 
 class Errors
 {	

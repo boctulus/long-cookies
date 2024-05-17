@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\LongCookies\core\libs;
+namespace boctulus\TolScraper\core\libs;
 
-use boctulus\LongCookies\core\libs\DB;
-use boctulus\LongCookies\core\libs\Debug;
-use boctulus\LongCookies\core\libs\Model;
-use boctulus\LongCookies\core\libs\Factory;
-use boctulus\LongCookies\core\libs\Strings;
-use boctulus\LongCookies\exceptions\EmptySchemaException;
-use boctulus\LongCookies\exceptions\TableAlreadyExistsException;
+use boctulus\TolScraper\core\libs\DB;
+use boctulus\TolScraper\core\libs\Debug;
+use boctulus\TolScraper\core\libs\Model;
+use boctulus\TolScraper\core\libs\Factory;
+use boctulus\TolScraper\core\libs\Strings;
+use boctulus\TolScraper\exceptions\EmptySchemaException;
+use boctulus\TolScraper\exceptions\TableAlreadyExistsException;
 
 /*
 	Schema Builder

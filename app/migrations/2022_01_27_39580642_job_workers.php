@@ -1,7 +1,7 @@
 <?php
 
-use boctulus\LongCookies\core\interfaces\IMigration;
-use boctulus\LongCookies\core\libs\Schema;
+use boctulus\TolScraper\core\interfaces\IMigration;
+use boctulus\TolScraper\core\libs\Schema;
 
 class JobWorkers implements IMigration
 {

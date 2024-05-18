@@ -196,7 +196,7 @@ class System
         https://gist.github.com/damienalexandre/1300820
         https://stackoverflow.com/questions/13257571/call-command-vs-start-with-wait-option
     */
-    static function execInBackground(string $filePath,  $working_dir = null, $arguments = null, $ignore_user_abort = true, int $execution_time = null, bool $debug = false, $output_path = null)
+    static function runInBackground(string $filePath,  $working_dir = null, $arguments = null, $ignore_user_abort = true, int $execution_time = null, bool $debug = false, $output_path = null)
     {
         ignore_user_abort($ignore_user_abort);
 
@@ -207,7 +207,7 @@ class System
         // $working_dir = $working_dir ?? Constants::ROOT_PATH;
 
         if ($working_dir){
-            if ($working_dir){
+            if ($debug){
                 dd("cd '$working_dir'");
             }
 

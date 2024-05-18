@@ -41,6 +41,8 @@ class RobotController
     */
     function order(){
         try {
+            $res   = Response::getInstance();
+
             $raw   = file_get_contents("php://input");
             $order = json_decode($raw, true);
 
@@ -49,11 +51,27 @@ class RobotController
 
             $bytes = file_put_contents($path, $raw);
 
-            Logger::dd($bytes, $path);   // <-- revisar log
+            if (!$bytes){
+                $res->error("Se ha producido un fallo al escribir el archivo. Vacio?", 500);
+            }
 
-            $pid = System::runInBackground(Env::get('PYTHON_BINARY') . " index.py $file", Env::get('ROBOT_PATH'), true);
+            // Logger::dd($bytes, $path);   // <-- revisar log
 
-            $res = Response::getInstance();
+            $file_path  = System::isWindows() ? Env::get('PYTHON_BINARY') : 'python3';
+            $dir        = Env::get('ROBOT_PATH') ;
+            $args       = "index.py $file";
+
+            // dd("$file_path $args", 'CMD');
+
+            $pid = System::runInBackground($file_path, $dir, $args); // ok
+            // dd($pid, 'PID');
+
+            sleep(1);
+            // dd(System::isProcessAlive($pid), 'Alive?');
+
+            if (!System::isProcessAlive($pid)){
+                $res->error("Orden ha fallado en ejecucion", 500, "La ejecucion se ha detenido antes del primer segundo");
+            }
 
             $res->sendJson([
                 "message"  => "Orden puesta para ejecucion",                

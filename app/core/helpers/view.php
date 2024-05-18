@@ -126,8 +126,8 @@ function shortcode_asset($resource)
         $base = substr($base, 0, -1); 
     }
     
-    $protocol = is_cli() ? 'http'              : httpProtocol();
-    $domain   = is_cli() ? Env::get('APP_URL') : $_SERVER['HTTP_HOST'];
+    $protocol   = is_cli() ? 'http'              : httpProtocol();
+    $domain     = is_cli() ? Env::get('APP_URL') : $_SERVER['HTTP_HOST'];
 
     $f          = explode('/', str_replace('\\', '/', __DIR__));
     $plugin_dir = $f[count($f)-4];

@@ -6,6 +6,7 @@ use boctulus\TolScraper\core\libs\DB;
 use boctulus\TolScraper\core\libs\Env;
 use boctulus\TolScraper\core\libs\HTTP;
 use boctulus\TolScraper\core\libs\Config;
+use boctulus\TolScraper\core\libs\Logger;
 use boctulus\TolScraper\core\libs\System;
 use boctulus\TolScraper\core\libs\Response;
 use boctulus\TolScraper\shortcodes\robot\Robot;
@@ -46,9 +47,11 @@ class RobotController
             $file  = 'order-' . ((string) time()) . '-' . ((string) rand(100,999)) . '.json';            
             $path  = $this->robot_path . "/instructions/$file";
 
-            file_put_contents($path, $raw);
+            $bytes = file_put_contents($path, $raw);
 
-            $pid = System::execInBackgroundWindows(Env::get('PYTHON_BINARY'), Env::get('ROBOT_PATH'), " index.py $file", true);
+            Logger::dd($bytes, $path);   // <-- revisar log
+
+            $pid = System::runInBackground(Env::get('PYTHON_BINARY') . " index.py $file", Env::get('ROBOT_PATH'), true);
 
             $res = Response::getInstance();
 
@@ -110,11 +113,6 @@ class RobotController
         }
     }
 
-    function test_py_bg()
-    {   
-        $pid = System::execInBackgroundWindows(Env::get('PYTHON_BINARY'), Env::get('ROBOT_PATH'), " index.py pablotol.py", true);
-
-        dd($pid, 'PID');
-    }
+    
 }
 

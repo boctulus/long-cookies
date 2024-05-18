@@ -9,8 +9,7 @@
 return [
     // rutas 
 
-    'GET:/tutor/courses' => 'boctulus\TolScraper\controllers\TutorController@courses',
-    '/tutor/enrollment'  => 'boctulus\TolScraper\controllers\TutorController@enrollment',
-
-    '/tutor/cronjob'     => 'boctulus\TolScraper\controllers\CronjobController'
+    'POST:/robot/order'      => 'boctulus\TolScraper\controllers\RobotController@order',
+    'GET:/robot/screenshots' => 'boctulus\TolScraper\controllers\RobotController@screenshots',
+    'GET:/robot/status'      => 'boctulus\TolScraper\controllers\RobotController@status',
 ];

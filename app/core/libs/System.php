@@ -225,8 +225,12 @@ class System
 
                 break;
             case 'Linux':
-                $cmd = $filePath . ' '. is_array($arguments) ? implode(' ', $arguments) : $arguments;
-                $cmd = ($output_path !== null) ? "nohup $cmd > $output_path 2>&1 & echo $!" : "nohup $cmd > /dev/null 2>&1 & echo $!";
+                $_cmd = $filePath;
+                if (!empty($arguments)){
+                    $_cmd .= ' ' . (is_array($arguments) ? implode(' ', $arguments) : $arguments);
+                }
+
+                $cmd = ($output_path !== null) ? "nohup $_cmd > $output_path 2>&1 & echo $!" : "nohup $_cmd > /dev/null 2>&1 & echo $!";
                 
                 $pid = (int) shell_exec($cmd);                
                 break;

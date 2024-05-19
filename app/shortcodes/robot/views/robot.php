@@ -7,26 +7,24 @@ use boctulus\TolScraper\core\libs\Url;
 <div class="container mt-4">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="ejecutar-orden-tab" data-bs-toggle="tab" data-bs-target="#ejecutar-orden" type="button" role="tab" aria-controls="ejecutar-orden" aria-selected="true">Ejecutar Orden</button>
+            <button class="nav-link active" id="ejecutar-orden-tab" data-bs-toggle="tab" data-bs-target="#ejecutar-orden" type="button" role="tab" aria-controls="ejecutar-orden" aria-selected="true" data-slug="ejecutar-orden">Ejecutar Orden</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="resultado-tab" data-bs-toggle="tab" data-bs-target="#resultado" type="button" role="tab" aria-controls="resultado" aria-selected="false">Resultado</button>
+            <button class="nav-link" id="resultado-tab" data-bs-toggle="tab" data-bs-target="#resultado" type="button" role="tab" aria-controls="resultado" aria-selected="false" data-slug="resultado">Resultado</button>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-
         <div class="tab-pane fade show active" id="ejecutar-orden" role="tabpanel" aria-labelledby="ejecutar-orden-tab">
             <div class="mt-3">
                 <textarea class="form-control" id="jsonInput" rows="10" placeholder="Ingresa JSON aquí"></textarea>
+                <button class="btn btn-danger mt-2 float-end me-2" id="clearSentOrderBtn">Limpiar</button>
                 <button class="btn btn-primary mt-2 float-end" id="sendJsonBtn">Enviar</button>
             </div>
-
             <div class="mt-5" id="sentOrderSection">
                 <h6>Orden enviada:</h6>
                 <textarea class="form-control" id="sentOrderTextarea" rows="10" readonly></textarea>
             </div>
         </div>
-
         <div class="tab-pane fade" id="resultado" role="tabpanel" aria-labelledby="resultado-tab">
             <div class="mt-3">
                 <div class="mb-3">
@@ -51,11 +49,9 @@ use boctulus\TolScraper\core\libs\Url;
                         </tbody>
                     </table>
                 </div>
-            </div>           
+            </div>
         </div>
     </div>
-
-    
 </div>
 
 <script>
@@ -65,7 +61,7 @@ use boctulus\TolScraper\core\libs\Url;
 
 // URL de la imagen por defecto
 const defaultImg = '<?= shortcode_asset(__DIR__ . '/img/no-image.jpg') ?>';
-const base_url   = '<?= Url::getBaseUrl() ?>'
+const base_url   = '<?= Url::getBaseUrl() ?>';
 
 // Función para realizar AJAX polling
 function fetchDataAndUpdateTable() {
@@ -191,14 +187,61 @@ function sendJson() {
 function showSentOrder(json) {
     // Obtener el textarea de la orden enviada
     const sentOrderTextarea = document.getElementById('sentOrderTextarea');
-    // Mostrar el título
-    sentOrderTextarea.value = 'Orden enviada:\n\n';
     // Mostrar la orden enviada
-    sentOrderTextarea.value += json;
+    sentOrderTextarea.value = json;
     // Habilitar el textarea para que sea editable
     sentOrderTextarea.readOnly = false;
+    // Guardar la orden en localStorage
+    localStorage.setItem('lastOrder', json);
+}
+
+// Función para cargar la última orden desde localStorage
+function loadLastOrder() {
+    const lastOrder = localStorage.getItem('lastOrder');
+    if (lastOrder) {
+        const sentOrderTextarea = document.getElementById('sentOrderTextarea');
+        sentOrderTextarea.value = lastOrder;
+    }
 }
 
 // Evento click del botón de enviar
 document.getElementById('sendJsonBtn').addEventListener('click', sendJson);
+
+// Evento click del botón de limpiar
+document.getElementById('clearSentOrderBtn').addEventListener('click', () => {
+    const sentOrderTextarea = document.getElementById('sentOrderTextarea');
+    sentOrderTextarea.value = '';
+    localStorage.removeItem('lastOrder');
+});
+
+// Función para manejar el cambio de pestañas y actualizar la URL
+function handleTabChange(event) {
+    const targetTab = event.target;
+    const slug = targetTab.getAttribute('data-slug');
+    if (slug) {
+        history.pushState(null, '', '#' + slug);
+    }
+}
+
+// Función para activar la pestaña basada en la URL
+function activateTabFromUrl() {
+    const hash = window.location.hash;
+    if (hash) {
+        const slug = hash.substring(1); // Remove the '#'
+        const targetTabButton = document.querySelector(`[data-slug="${slug}"]`);
+        if (targetTabButton) {
+            const tab = new bootstrap.Tab(targetTabButton);
+            tab.show();
+        }
+    }
+}
+
+// Agregar el evento a cada botón de pestaña
+document.querySelectorAll('#myTab button').forEach(button => {
+    button.addEventListener('shown.bs.tab', handleTabChange);
+});
+
+// Activar la pestaña correcta al cargar la página
+document.addEventListener('DOMContentLoaded', activateTabFromUrl);
+document.addEventListener('DOMContentLoaded', loadLastOrder);
 </script>

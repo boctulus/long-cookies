@@ -2,9 +2,11 @@
 
 namespace boctulus\TolScraper\controllers;
 
+use boctulus\TolScraper\core\Constants;
 use boctulus\TolScraper\core\libs\DB;
 use boctulus\TolScraper\core\libs\Env;
 use boctulus\TolScraper\core\libs\HTTP;
+use boctulus\TolScraper\core\libs\Files;
 use boctulus\TolScraper\core\libs\Config;
 use boctulus\TolScraper\core\libs\Logger;
 use boctulus\TolScraper\core\libs\System;
@@ -52,33 +54,35 @@ class RobotController
             $bytes = file_put_contents($path, $raw);
 
             if (!$bytes){
-                $res->error("Se ha producido un fallo al escribir el archivo. Vacio?", 500);
+                $len = strlen($raw);
+                $res->error("Se ha producido un fallo al escribir el archivo. Se ha recibido $len bytes pero se escribieron 0 bytes. Path = '$path'", 500);
             }
 
             // Logger::dd($bytes, $path);   // <-- revisar log
 
             $file_path  = System::isWindows() ? Env::get('PYTHON_BINARY') : 'python3';
-            $dir        = Env::get('ROBOT_PATH') ;
-            $args       = "index.py $file";
+            $dir        = Env::get('ROBOT_PATH');
+            $args       = "index.py load $file";
 
             // dd("$file_path $args", 'CMD');
 
             $pid = System::runInBackground($file_path, $dir, $args); // ok
             // dd($pid, 'PID');
 
+            $data = [
+                "message"  => "Orden puesta para ejecucion",                
+                "order"    => $order,
+                "filename" => $file,
+                "PID"      => $pid,
+            ];
+
             sleep(1);
-            // dd(System::isProcessAlive($pid), 'Alive?');
 
             if (!System::isProcessAlive($pid)){
                 $res->error("Orden ha fallado en ejecucion", 500, "La ejecucion se ha detenido antes del primer segundo");
             }
 
-            $res->sendJson([
-                "message"  => "Orden puesta para ejecucion",                
-                "order"    => $order,
-                "filename" => $file,
-                "PID"      => $pid
-            ]);
+            $res->sendJson($data);
 
         } catch (\Exception $e){
             $res->error($e->getMessage());
@@ -129,6 +133,27 @@ class RobotController
         } catch (\Exception $e){
             $res->error($e->getMessage());
         }
+    }
+
+    function test_write(){
+        dd("Intentando escribir log");
+        Logger::log(__LINE__);
+        dd(Logger::getContent(), "Log content");
+
+        $dir = Constants::LOGS_PATH;
+        dd(
+            Files::isDirectoryWritable($dir), "Se puede escribir '$dir'?"
+        );
+
+        $dir = Env::get('ROBOT_PATH');
+        dd(
+            Files::isDirectoryWritable($dir), "Se puede escribir '$dir'?"
+        );
+
+        $dir = Files::normalize(Constants::WP_ROOT_PATH . '../');
+        dd(
+            Files::isDirectoryWritable($dir), "Se puede escribir '$dir'?"
+        );
     }
 
     

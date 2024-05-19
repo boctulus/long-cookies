@@ -12,6 +12,11 @@ use boctulus\TolScraper\core\libs\Url;
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="resultado-tab" data-bs-toggle="tab" data-bs-target="#resultado" type="button" role="tab" aria-controls="resultado" aria-selected="false" data-slug="resultado">Resultado</button>
         </li>
+        <li class="ms-auto">
+            <button class="btn btn-secondary" id="refreshBtn" style="display: none;">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </li>
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="ejecutar-orden" role="tabpanel" aria-labelledby="ejecutar-orden-tab">
@@ -62,6 +67,7 @@ use boctulus\TolScraper\core\libs\Url;
 // URL de la imagen por defecto
 const defaultImg = '<?= shortcode_asset(__DIR__ . '/img/no-image.jpg') ?>';
 const base_url   = '<?= Url::getBaseUrl() ?>';
+let pollingInterval;
 
 // Función para realizar AJAX polling
 function fetchDataAndUpdateTable() {
@@ -84,6 +90,7 @@ function fetchDataAndUpdateTable() {
                 if (finalStatus === 'completed' || finalStatus === 'failed') {
                     // Detener el AJAX polling si el estado final es alcanzado
                     clearInterval(pollingInterval);
+                    pollingInterval = null;
                 }
                 
                 // Actualizar la tabla con los nuevos datos
@@ -128,13 +135,11 @@ function fetchDataAndUpdateTable() {
     // Realizar la primera solicitud de inmediato
     fetchData();
 
-    // Configurar el intervalo para realizar el AJAX polling
-    const pollingInterval = setInterval(fetchData, interval);
+    // Configurar el intervalo para realizar el AJAX polling si no está ya iniciado
+    if (!pollingInterval) {
+        pollingInterval = setInterval(fetchData, interval);
+    }
 }
-
-// Llamar a la función para iniciar el AJAX polling
-fetchDataAndUpdateTable();
-
 
 /*
     ENVIAR ORDEN
@@ -220,15 +225,21 @@ function handleTabChange(event) {
     const slug = targetTab.getAttribute('data-slug');
     if (slug) {
         history.pushState(null, '', '#' + slug);
+        // Mostrar u ocultar el botón de refrescar
+        const refreshBtn = document.getElementById('refreshBtn');
+        if (slug === 'resultado') {
+            refreshBtn.style.display = 'block';
+        } else {
+            refreshBtn.style.display = 'none';
+        }
     }
 }
 
-// Función para activar la pestaña basada en la URL
+// Función para activar la pestaña correcta al cargar la página
 function activateTabFromUrl() {
-    const hash = window.location.hash;
+    const hash = window.location.hash.substring(1);
     if (hash) {
-        const slug = hash.substring(1); // Remove the '#'
-        const targetTabButton = document.querySelector(`[data-slug="${slug}"]`);
+        const targetTabButton = document.querySelector(`#myTab button[data-slug="${hash}"]`);
         if (targetTabButton) {
             const tab = new bootstrap.Tab(targetTabButton);
             tab.show();
@@ -244,4 +255,27 @@ document.querySelectorAll('#myTab button').forEach(button => {
 // Activar la pestaña correcta al cargar la página
 document.addEventListener('DOMContentLoaded', activateTabFromUrl);
 document.addEventListener('DOMContentLoaded', loadLastOrder);
+document.addEventListener('DOMContentLoaded', () => {
+    // Llamar a la función para iniciar el AJAX polling
+    fetchDataAndUpdateTable();
+});
+
+// Evento click del botón de refrescar
+document.getElementById('refreshBtn').addEventListener('click', () => {
+    if (!pollingInterval) {
+        fetchDataAndUpdateTable();
+    } else {
+        console.log('El polling ya está en ejecución');
+    }
+});
+
+// Evento click del tab de resultados
+document.getElementById('resultado-tab').addEventListener('click', () => {
+    if (!pollingInterval) {
+        fetchDataAndUpdateTable();
+    } else {
+        console.log('El polling ya está en ejecución');
+    }
+});
+
 </script>

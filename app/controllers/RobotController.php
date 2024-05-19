@@ -66,8 +66,16 @@ class RobotController
 
             // dd("$file_path $args", 'CMD');
 
-            $pid = System::runInBackground($file_path, $dir, $args); // ok
-            // dd($pid, 'PID');
+            /*
+                Dado que existe un bug del lado de Python al ejecutar en segundo plano,
+                se momento.... para Linux sera en foreground !!!
+            */
+            
+            if (System::isWindows()){
+                $pid = System::runInBackground($file_path, $dir, $args); // ok
+            } else {
+                $pid = System::execAt($file_path, $dir, $args); // ok
+            }            
 
             $data = [
                 "message"  => "Orden puesta para ejecucion",                

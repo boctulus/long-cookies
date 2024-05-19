@@ -11,6 +11,8 @@ class Robot
     function __construct(){
         css_file('third_party/bootstrap/5.x/bootstrap.min.css');
         js_file('third_party/bootstrap/5.x/bootstrap.bundle.min.js');
+
+        js_file('third_party/fontawesome5/fontawesome-5.js');
     }
 
     function render()

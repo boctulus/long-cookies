@@ -6,6 +6,7 @@ use boctulus\LongCookies\core\libs\Users;
 use boctulus\LongCookies\core\libs\Config;
 use boctulus\LongCookies\core\libs\Logger;
 use boctulus\LongCookies\core\libs\Url;
+use boctulus\LongCookies\core\libs\Strings;
 
 /*
     @author Pablo Bozzolo < boctulus@gmail.com >
@@ -23,13 +24,15 @@ class Main
 
     function set_auth_cookie_expiration($length, $user_id, $remember)   
     {
-        $length = 15;
+        /*
+            Para pruebas usar 15 segundos
+        */
 
-        // $length   = 3600 * 24 * 365 * 5;
+        $length   = 3600 * 24 * 365 * 5;
     
-        // if (defined('AUTH_COOKIE_EXPIRATION')){
-        //     $length = AUTH_COOKIE_EXPIRATION;
-        // } 
+        if (defined('AUTH_COOKIE_EXPIRATION')){
+            $length = AUTH_COOKIE_EXPIRATION;
+        } 
 
         // Logger::log($length);
         
@@ -39,18 +42,21 @@ class Main
     function init()
     {   
         // Verificar si la URL no contiene "logout" y no tiene la variable "stoken"
-        // Esta redireccion interfiere con los Ajax calls:
 
-        // if (strpos($_SERVER['REQUEST_URI'], Config::get('logout_slug')) === false && empty($_GET['stoken'])) {
-        //     // Obtener el stoken y agregarlo a la URL
-        //     $stoken = $this->stoken();
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            return;
+        }
 
-        //     if ($stoken) {
-        //         $url = add_query_arg('stoken', $stoken, $_SERVER['REQUEST_URI']);
-        //         wp_redirect($url); // Redireccionar a la URL con el stoken agregado
-        //         exit;
-        //     }
-        // }
+        if (strpos($_SERVER['REQUEST_URI'], Config::get('logout_slug')) === false && empty($_GET['stoken'])) {
+            // Obtener el stoken y agregarlo a la URL
+            $stoken = $this->stoken();
+
+            if ($stoken) {
+                $url = add_query_arg('stoken', $stoken, $_SERVER['REQUEST_URI']);
+                wp_redirect($url); // Redireccionar a la URL con el stoken agregado
+                exit;
+            }
+        }
 
         // Verificar si el usuario está deslogueado
         $uid = get_current_user_id();
@@ -59,7 +65,22 @@ class Main
         {
             $uname = $this->decode($_GET['stoken']);
 
-            Users::loginNoPassword($uname, Url::getCurrentUrl());
+            $curr_url       = Url::getCurrentUrl();
+            $param_key_vals = Url::getQueryParams($curr_url);
+            $params         = array_keys($param_key_vals);
+
+            $nonce_found = false;
+            foreach ($params as $param){
+                if (Strings::contains('nonce', $param)){
+                    $nonce_found = true;
+                }
+            }
+
+            $logout_found = (isset($_GET['action']) && $_GET['action'] == 'logout');
+
+            if (!$nonce_found && !$logout_found){
+                Users::loginNoPassword($uname, $curr_url);
+            }            
         }
     }
 

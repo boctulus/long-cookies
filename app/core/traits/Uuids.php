@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\TolScraper\core\traits;
+namespace boctulus\LongCookies\core\traits;
 
 trait Uuids
 {

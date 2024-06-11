@@ -2,11 +2,11 @@
 
 namespace __NAMESPACE;
 
-use boctulus\TolScraper\core\controllers\ConsoleController;
-use boctulus\TolScraper\core\Request;
-use boctulus\TolScraper\core\Response;
-use boctulus\TolScraper\core\libs\Factory;
-use boctulus\TolScraper\core\libs\DB;
+use boctulus\LongCookies\core\controllers\ConsoleController;
+use boctulus\LongCookies\core\Request;
+use boctulus\LongCookies\core\Response;
+use boctulus\LongCookies\core\libs\Factory;
+use boctulus\LongCookies\core\libs\DB;
 
 class __NAME__ extends ConsoleController
 {

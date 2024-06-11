@@ -1,10 +1,10 @@
 <?php
 
-use boctulus\TolScraper\core\interfaces\IMigration;
-use boctulus\TolScraper\core\libs\Factory;
-use boctulus\TolScraper\core\libs\Schema;
-use boctulus\TolScraper\core\Model;
-use boctulus\TolScraper\core\libs\DB;
+use boctulus\LongCookies\core\interfaces\IMigration;
+use boctulus\LongCookies\core\libs\Factory;
+use boctulus\LongCookies\core\libs\Schema;
+use boctulus\LongCookies\core\Model;
+use boctulus\LongCookies\core\libs\DB;
 
 class __NAME__ implements IMigration
 {

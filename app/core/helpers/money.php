@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\TolScraper\core\libs\Config;
+use boctulus\LongCookies\core\libs\Config;
 
 function currency_symbol(){
     $cfg = Config::get();

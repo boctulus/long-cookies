@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
 /*
 	Funciona con form-data
@@ -31,10 +31,10 @@ namespace boctulus\TolScraper\core\libs;
         }
 */
 
-use boctulus\TolScraper\core\Constants;
-use boctulus\TolScraper\core\libs\Files;
-use boctulus\TolScraper\core\libs\Arrays;
-use boctulus\TolScraper\core\libs\Numbers;
+use boctulus\LongCookies\core\Constants;
+use boctulus\LongCookies\core\libs\Files;
+use boctulus\LongCookies\core\libs\Arrays;
+use boctulus\LongCookies\core\libs\Numbers;
 
 class FileUploader
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\TolScraper\libs\HtmlBuilder;
+namespace boctulus\LongCookies\libs\HtmlBuilder;
 
 class Tag
 {

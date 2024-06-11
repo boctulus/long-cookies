@@ -1,9 +1,9 @@
 <?php 
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Files;
-use boctulus\TolScraper\core\libs\Strings;
+use boctulus\LongCookies\core\libs\Files;
+use boctulus\LongCookies\core\libs\Strings;
 
 // Theme
 class Templates

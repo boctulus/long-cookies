@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\TolScraper\core\libs\Date;
+use boctulus\LongCookies\core\libs\Date;
 
 
 function datetime(string $format = 'Y-m-d H:i:s', $timezone = null){

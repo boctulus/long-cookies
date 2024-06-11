@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\TolScraper\core\libs\Config;
+use boctulus\LongCookies\core\libs\Config;
 
 if (!function_exists('credits_to_author')){
     function credits_to_author()

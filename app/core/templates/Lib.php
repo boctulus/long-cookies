@@ -2,7 +2,7 @@
 
 namespace __NAMESPACE;
 
-use boctulus\TolScraper\core\libs\Strings;
+use boctulus\LongCookies\core\libs\Strings;
 
 class __NAME__
 {

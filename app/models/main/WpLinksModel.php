@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\TolScraper\models\main;
+namespace boctulus\LongCookies\models\main;
 
-use boctulus\TolScraper\models\MyModel;
-use boctulus\TolScraper\schemas\main\WpLinksSchema;
+use boctulus\LongCookies\models\MyModel;
+use boctulus\LongCookies\schemas\main\WpLinksSchema;
 
 class WpLinksModel extends MyModel
 {

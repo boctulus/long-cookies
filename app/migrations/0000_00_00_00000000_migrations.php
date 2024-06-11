@@ -1,7 +1,7 @@
 <?php
 
-use boctulus\TolScraper\core\interfaces\IMigration;
-use boctulus\TolScraper\core\libs\DB;
+use boctulus\LongCookies\core\interfaces\IMigration;
+use boctulus\LongCookies\core\libs\DB;
 
 class Migrations implements IMigration
 {

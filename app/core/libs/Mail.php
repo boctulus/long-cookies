@@ -4,7 +4,7 @@
 	@author boctulus
 */
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

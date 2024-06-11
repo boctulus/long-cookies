@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\Constants;
+use boctulus\LongCookies\core\Constants;
 
 
 /*

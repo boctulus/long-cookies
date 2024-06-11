@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Arrays;
-use boctulus\TolScraper\core\libs\Strings;
+use boctulus\LongCookies\core\libs\Arrays;
+use boctulus\LongCookies\core\libs\Strings;
 
 /*
     Product utility class

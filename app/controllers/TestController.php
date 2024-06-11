@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\TolScraper\controllers;
+namespace boctulus\LongCookies\controllers;
 
-use boctulus\TolScraper\core\libs\Posts;
+use boctulus\LongCookies\core\libs\Posts;
 
 class TestController
 {

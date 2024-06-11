@@ -1,12 +1,12 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Url;
-use boctulus\TolScraper\core\libs\XML;
-use boctulus\TolScraper\core\libs\Files;
-use boctulus\TolScraper\core\libs\Strings;
-use boctulus\TolScraper\core\libs\FileCache;
+use boctulus\LongCookies\core\libs\Url;
+use boctulus\LongCookies\core\libs\XML;
+use boctulus\LongCookies\core\libs\Files;
+use boctulus\LongCookies\core\libs\Strings;
+use boctulus\LongCookies\core\libs\FileCache;
 
 /*
     Wrapper sobre el SDK de Google Drive

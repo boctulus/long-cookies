@@ -1,11 +1,11 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Url;
-use boctulus\TolScraper\core\Constants;
-use boctulus\TolScraper\core\libs\Config;
-use boctulus\TolScraper\core\libs\CookieJar;
+use boctulus\LongCookies\core\libs\Url;
+use boctulus\LongCookies\core\Constants;
+use boctulus\LongCookies\core\libs\Config;
+use boctulus\LongCookies\core\libs\CookieJar;
 
 /*
     Wrapper para Url::consume_api()

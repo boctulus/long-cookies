@@ -4,7 +4,7 @@
     @author  Pablo Bozzolo boctulus@gmail.com
 */
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
 class Request
 {

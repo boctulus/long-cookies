@@ -4,9 +4,9 @@
     @author  Pablo Bozzolo boctulus@gmail.com
 */
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Strings;
+use boctulus\LongCookies\core\libs\Strings;
 
 class Users
 {

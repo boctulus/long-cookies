@@ -1,10 +1,10 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\System;
-use boctulus\TolScraper\core\libs\Logger;
-use boctulus\TolScraper\core\libs\SortedIterator;
+use boctulus\LongCookies\core\libs\System;
+use boctulus\LongCookies\core\libs\Logger;
+use boctulus\LongCookies\core\libs\SortedIterator;
 
 class Files 
 {
@@ -1609,7 +1609,7 @@ class Files
 	/*
 		Ej:
 
-		$search  = 'boctulus\TolScraper\\';
+		$search  = 'boctulus\LongCookies\\';
 		$replace = 'boctulus\\SW\\';
 
 		Files::searchAndReplaceInFiles(APP_PATH, '*.php', $search, $replace);

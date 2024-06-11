@@ -1,13 +1,13 @@
 <?php
 
-namespace boctulus\TolScraper\controllers;
+namespace boctulus\LongCookies\controllers;
 
-use boctulus\TolScraper\core\controllers\MakeControllerBase;
-use boctulus\TolScraper\core\libs\DB;
-use boctulus\TolScraper\core\libs\Files;
-use boctulus\TolScraper\core\libs\StdOut;
-use boctulus\TolScraper\core\libs\Strings;
-use boctulus\TolScraper\core\libs\Update;
+use boctulus\LongCookies\core\controllers\MakeControllerBase;
+use boctulus\LongCookies\core\libs\DB;
+use boctulus\LongCookies\core\libs\Files;
+use boctulus\LongCookies\core\libs\StdOut;
+use boctulus\LongCookies\core\libs\Strings;
+use boctulus\LongCookies\core\libs\Update;
 
 
 class MakeController extends MakeControllerBase

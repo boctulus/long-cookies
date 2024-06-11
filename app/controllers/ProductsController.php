@@ -1,11 +1,11 @@
 <?php
 
-namespace boctulus\TolScraper\controllers;
+namespace boctulus\LongCookies\controllers;
 
-use boctulus\TolScraper\core\libs\Arrays;
-use boctulus\TolScraper\core\libs\Strings;
-use boctulus\TolScraper\core\libs\Products;
-use boctulus\TolScraper\controllers\MyController;
+use boctulus\LongCookies\core\libs\Arrays;
+use boctulus\LongCookies\core\libs\Strings;
+use boctulus\LongCookies\core\libs\Products;
+use boctulus\LongCookies\controllers\MyController;
 
 /*
     API

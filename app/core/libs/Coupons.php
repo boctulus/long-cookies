@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Date;
-use boctulus\TolScraper\core\libs\Users;
+use boctulus\LongCookies\core\libs\Date;
+use boctulus\LongCookies\core\libs\Users;
 
 /*
 	@author boctulus

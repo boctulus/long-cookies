@@ -1,9 +1,9 @@
 <?php
 
 
-use boctulus\TolScraper\core\libs\Factory;
-use boctulus\TolScraper\core\libs\Request;
-use boctulus\TolScraper\libs\HtmlBuilder\Tag;
+use boctulus\LongCookies\core\libs\Factory;
+use boctulus\LongCookies\core\libs\Request;
+use boctulus\LongCookies\libs\HtmlBuilder\Tag;
 
 function tag(string $name) : Tag {
     return new Tag($name);

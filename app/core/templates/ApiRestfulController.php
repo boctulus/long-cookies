@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\TolScraper\controllers\api;
+namespace boctulus\LongCookies\controllers\api;
 
-use boctulus\TolScraper\controllers\MyApiController; 
+use boctulus\LongCookies\controllers\MyApiController; 
 
 class __NAME__ extends MyApiController
 { 

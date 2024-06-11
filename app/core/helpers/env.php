@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\TolScraper\core\libs\Env;
+use boctulus\LongCookies\core\libs\Env;
 
 require_once __DIR__ . '/../../core/libs/Env.php';
 

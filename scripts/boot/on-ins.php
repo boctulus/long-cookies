@@ -1,7 +1,7 @@
 <?php
 
-use boctulus\TolScraper\core\libs\Config;
-use boctulus\TolScraper\core\libs\Logger;
+use boctulus\LongCookies\core\libs\Config;
+use boctulus\LongCookies\core\libs\Logger;
 
 /*
     A ejecutarse al instalar

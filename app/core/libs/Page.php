@@ -1,8 +1,8 @@
 <?php 
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Url;
+use boctulus\LongCookies\core\libs\Url;
 
 class Page
 {

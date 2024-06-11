@@ -1,8 +1,8 @@
 <?php
 
-use boctulus\TolScraper\core\libs\DB;
-use boctulus\TolScraper\core\libs\Files;
-use boctulus\TolScraper\core\libs\Config;
+use boctulus\LongCookies\core\libs\DB;
+use boctulus\LongCookies\core\libs\Files;
+use boctulus\LongCookies\core\libs\Config;
 
 /*
     @author Pablo Bozzolo < boctulus@gmail.com >

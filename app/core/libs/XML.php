@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
 use Composer\InstalledVersions;
 

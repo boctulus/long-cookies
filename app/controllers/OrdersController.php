@@ -1,15 +1,15 @@
 <?php
 
-namespace boctulus\TolScraper\controllers;
+namespace boctulus\LongCookies\controllers;
 
-use boctulus\TolScraper\core\libs\Posts;
-use boctulus\TolScraper\core\libs\System;
-use boctulus\TolScraper\libs\Sync;
-use boctulus\TolScraper\core\libs\Users;
-use boctulus\TolScraper\core\libs\Logger;
-use boctulus\TolScraper\core\libs\Files;
+use boctulus\LongCookies\core\libs\Posts;
+use boctulus\LongCookies\core\libs\System;
+use boctulus\LongCookies\libs\Sync;
+use boctulus\LongCookies\core\libs\Users;
+use boctulus\LongCookies\core\libs\Logger;
+use boctulus\LongCookies\core\libs\Files;
 
-use boctulus\TolScraper\core\libs\Products;
+use boctulus\LongCookies\core\libs\Products;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

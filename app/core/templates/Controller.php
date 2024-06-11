@@ -2,9 +2,9 @@
 
 namespace __NAMESPACE;
 
-use boctulus\TolScraper\controllers\MyController;
-use boctulus\TolScraper\core\libs\Strings;
-use boctulus\TolScraper\core\libs\DB;
+use boctulus\LongCookies\controllers\MyController;
+use boctulus\LongCookies\core\libs\Strings;
+use boctulus\LongCookies\core\libs\DB;
 
 class __NAME__
 {

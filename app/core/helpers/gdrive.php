@@ -1,8 +1,8 @@
 <?php
 
-use boctulus\TolScraper\core\libs\Url;
-use boctulus\TolScraper\core\libs\Strings;
-use boctulus\TolScraper\core\libs\GoogleDrive;
+use boctulus\LongCookies\core\libs\Url;
+use boctulus\LongCookies\core\libs\Strings;
+use boctulus\LongCookies\core\libs\GoogleDrive;
 
 function gdrive_file_updated_at($link, bool $exception_if_fails = false){
 	if (empty($link)){

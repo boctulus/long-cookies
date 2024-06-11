@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\XML;
+use boctulus\LongCookies\core\libs\XML;
 
 class HTML extends XML
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Files;
+use boctulus\LongCookies\core\libs\Files;
 
 
 class Base64Uploader

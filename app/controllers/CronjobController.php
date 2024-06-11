@@ -1,12 +1,12 @@
 <?php
 
-namespace boctulus\TolScraper\controllers;
+namespace boctulus\LongCookies\controllers;
 
-use boctulus\TolScraper\core\libs\DB;
-use boctulus\TolScraper\core\libs\Users;
-use boctulus\TolScraper\core\libs\Strings;
-use boctulus\TolScraper\controllers\MyController;
-use boctulus\TolScraper\libs\TutorLMSWooSubsAutomation;
+use boctulus\LongCookies\core\libs\DB;
+use boctulus\LongCookies\core\libs\Users;
+use boctulus\LongCookies\core\libs\Strings;
+use boctulus\LongCookies\controllers\MyController;
+use boctulus\LongCookies\libs\TutorLMSWooSubsAutomation;
 
 class CronjobController
 {

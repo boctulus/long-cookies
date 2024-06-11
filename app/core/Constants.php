@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\TolScraper\core;
+namespace boctulus\LongCookies\core;
 
 /*
     Version 1.5

@@ -4,9 +4,9 @@
     @author  Pablo Bozzolo boctulus@gmail.com
 */
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\DB;
+use boctulus\LongCookies\core\libs\DB;
 
 
 class Response

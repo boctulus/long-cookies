@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\MailBase;
+use boctulus\LongCookies\core\libs\MailBase;
 
 class MailFromRemoteWP extends MailBase
 {

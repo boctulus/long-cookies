@@ -1,8 +1,8 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Metabox;
+use boctulus\LongCookies\core\libs\Metabox;
 
 /*
     @author Pablo Bozzolo <boctulus@gmail.com>

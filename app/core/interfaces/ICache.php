@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\TolScraper\core\interfaces;
+namespace boctulus\LongCookies\core\interfaces;
 
 interface ICache {
     static function expired($cached_at, int $expiration_time) : bool;

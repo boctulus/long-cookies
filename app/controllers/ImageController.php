@@ -1,10 +1,10 @@
 <?php
 
-namespace boctulus\TolScraper\controllers;
+namespace boctulus\LongCookies\controllers;
 
-use boctulus\TolScraper\core\libs\XML;
-use boctulus\TolScraper\core\libs\Files;
-use boctulus\TolScraper\core\libs\MediaType;
+use boctulus\LongCookies\core\libs\XML;
+use boctulus\LongCookies\core\libs\Files;
+use boctulus\LongCookies\core\libs\MediaType;
 
 class ImageController
 {

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\TolScraper\core\traits;
+namespace boctulus\LongCookies\core\traits;
 
-use boctulus\TolScraper\core\libs\Config;
-use boctulus\TolScraper\core\libs\DB;
-use boctulus\TolScraper\core\libs\Logger;
+use boctulus\LongCookies\core\libs\Config;
+use boctulus\LongCookies\core\libs\DB;
+use boctulus\LongCookies\core\libs\Logger;
 
 trait ExceptionHandler
 {

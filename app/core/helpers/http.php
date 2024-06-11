@@ -1,6 +1,6 @@
 <?php
 
-use boctulus\TolScraper\core\libs\Url;
+use boctulus\LongCookies\core\libs\Url;
 
 function cors(){
     header('Access-Control-Allow-Credentials: True');

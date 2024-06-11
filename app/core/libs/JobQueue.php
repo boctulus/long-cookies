@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Logger;
-use boctulus\TolScraper\core\libs\System;
+use boctulus\LongCookies\core\libs\Logger;
+use boctulus\LongCookies\core\libs\System;
 
 
 class JobQueue

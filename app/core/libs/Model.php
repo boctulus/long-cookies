@@ -1,21 +1,20 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\DB;
-use boctulus\TolScraper\core\libs\Arrays;
-use boctulus\TolScraper\core\libs\Config;
-use boctulus\TolScraper\core\libs\Factory;
-use boctulus\TolScraper\core\libs\Strings;
-use boctulus\TolScraper\core\libs\Paginator;
-use boctulus\TolScraper\core\libs\Validator;
-use boctulus\TolScraper\core\libs\ValidationRules;
-use boctulus\TolScraper\core\interfaces\IValidator;
-use boctulus\TolScraper\core\exceptions\SqlException;
-use boctulus\TolScraper\core\interfaces\ITransformer;
-use boctulus\TolScraper\core\traits\ExceptionHandler;
-use boctulus\TolScraper\core\exceptions\InvalidValidationException;
-             
+use PDO;
+use boctulus\LongCookies\core\libs\DB;
+use boctulus\LongCookies\core\libs\Arrays;
+use boctulus\LongCookies\core\libs\Factory;
+use boctulus\LongCookies\core\libs\Strings;
+use boctulus\LongCookies\core\libs\Paginator;
+use boctulus\LongCookies\core\libs\Validator;
+use boctulus\LongCookies\exceptions\SqlException;
+use boctulus\LongCookies\core\interfaces\IValidator;
+use boctulus\LongCookies\core\traits\ExceptionHandler;
+use boctulus\LongCookies\exceptions\InvalidValidationException;
+
+
 class Model {
 	use ExceptionHandler;
 
@@ -226,7 +225,7 @@ class Model {
 	{
 		$this->boot();
 
-		$this->prefix = DB::getTablePrefix();
+		$this->prefix = tb_prefix();
 
 		// static::$sql_formatter_callback = function(string $sql, bool $highlight = false){
 		// 	return \SqlFormatter::format($sql, $highlight);
@@ -409,7 +408,7 @@ class Model {
 	}
 
 	// acepta un Transformer
-	function registerTransformer(ITransformer $t, $controller = NULL){
+	function registerTransformer($t, $controller = NULL){
 		$this->unhideAll();
 		$this->transformer = $t;
 		$this->controller  = $controller;
@@ -514,7 +513,7 @@ class Model {
 		}
 	}
 
-	function setValidator(?IValidator $validator = null){
+	function setValidator($validator = null){
 		$this->validator = $validator;
 		return $this;
 	}
@@ -3802,7 +3801,7 @@ class Model {
 	*/
 	static function addPrefix(string $st, $tb_prefix = null)
 	{
-		$tb_prefix = $tb_prefix ?? DB::getTablePrefix() ?? null;
+		$tb_prefix = $tb_prefix ?? tb_prefix() ?? null;
 
 		if (empty($tb_prefix)){
 			return $st;

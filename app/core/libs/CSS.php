@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\XML;
-use boctulus\TolScraper\core\libs\Strings;
+use boctulus\LongCookies\core\libs\XML;
+use boctulus\LongCookies\core\libs\Strings;
 use Sabberworm\CSS\Parser;
 
 class CSS
@@ -27,10 +27,10 @@ class CSS
 
         Array
         (
-            [0] => D:\www\boctulus\TolScraper\public\assets\practicatest.cl\basic.min.css
-            [1] => D:\www\boctulus\TolScraper\public\assets\practicatest.cl\style.themed.css
-            [2] => D:\www\boctulus\TolScraper\public\assets\practicatest.cl\fontawesome.css
-            [3] => D:\www\boctulus\TolScraper\public\assets\practicatest.cl\brands.css
+            [0] => D:\www\boctulus\LongCookies\public\assets\practicatest.cl\basic.min.css
+            [1] => D:\www\boctulus\LongCookies\public\assets\practicatest.cl\style.themed.css
+            [2] => D:\www\boctulus\LongCookies\public\assets\practicatest.cl\fontawesome.css
+            [3] => D:\www\boctulus\LongCookies\public\assets\practicatest.cl\brands.css
         )
 
         Usando $if_callback() se puede filtrar dada una condicion dentro del string

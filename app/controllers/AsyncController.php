@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\TolScraper\controllers;
+namespace boctulus\LongCookies\controllers;
 
-use boctulus\TolScraper\controllers\MyController;
-use boctulus\TolScraper\core\libs\Strings;
-use boctulus\TolScraper\core\libs\Date;
-use boctulus\TolScraper\core\libs\CronJob;
+use boctulus\LongCookies\controllers\MyController;
+use boctulus\LongCookies\core\libs\Strings;
+use boctulus\LongCookies\core\libs\Date;
+use boctulus\LongCookies\core\libs\CronJob;
 
 class AsyncController
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace boctulus\TolScraper\core\exceptions;
+namespace boctulus\LongCookies\exceptions;
 
 class InvalidValidationException extends \InvalidArgumentException {
 

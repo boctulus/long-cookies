@@ -6,9 +6,9 @@
     /c/249764e5-9720-4f8d-8fa4-d88f56ef149c
 */
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Posts;
+use boctulus\LongCookies\core\libs\Posts;
 
 class TutorLMS 
 {

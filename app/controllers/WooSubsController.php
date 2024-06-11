@@ -1,9 +1,9 @@
 <?php
 
-namespace boctulus\TolScraper\controllers;
+namespace boctulus\LongCookies\controllers;
 
-use boctulus\TolScraper\core\libs\Users;
-use boctulus\TolScraper\core\libs\WCSubscriptions;
+use boctulus\LongCookies\core\libs\Users;
+use boctulus\LongCookies\core\libs\WCSubscriptions;
 
 /*
     Este controlador es para demostrar capacidades de una libreria

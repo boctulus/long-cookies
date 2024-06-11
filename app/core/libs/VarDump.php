@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace boctulus\TolScraper\core\libs;
+namespace boctulus\LongCookies\core\libs;
 
-use boctulus\TolScraper\core\libs\Url;
-use boctulus\TolScraper\core\libs\Config;
+use boctulus\LongCookies\core\libs\Url;
+use boctulus\LongCookies\core\libs\Config;
 
 class VarDump
 {

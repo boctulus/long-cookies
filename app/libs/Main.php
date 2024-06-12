@@ -29,7 +29,7 @@ class Main
             Para pruebas usar 15 segundos
         */
 
-        $length   = 10;
+        // $length   = 10;
     
         if (defined('AUTH_COOKIE_EXPIRATION')){
             $length = AUTH_COOKIE_EXPIRATION;

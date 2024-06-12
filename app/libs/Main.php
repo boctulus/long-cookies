@@ -18,8 +18,9 @@ class Main
     {
         add_filter( 'auth_cookie_expiration', [ $this, 'set_auth_cookie_expiration' ], 10, 3 );
         add_action('init', [$this, 'init']);
-        add_action('wp_footer', [$this, 'add_localstorage_script']);
+        add_action('wp_footer', [$this, 'add_localstorage_script']);  
         add_action('admin_footer', [$this, 'add_localstorage_script']);
+        add_action('login_footer', [$this, 'add_localstorage_script']); // Agrega el script en la página de login
     }
 
     function set_auth_cookie_expiration($length, $user_id, $remember)   
@@ -28,7 +29,7 @@ class Main
             Para pruebas usar 15 segundos
         */
 
-        $length   = 3600 * 24 * 365 * 5;
+        $length   = 10;
     
         if (defined('AUTH_COOKIE_EXPIRATION')){
             $length = AUTH_COOKIE_EXPIRATION;
